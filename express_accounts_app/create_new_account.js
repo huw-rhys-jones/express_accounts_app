@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity, InputBox } from 'react-native';
 import logo from './assets/images/logo.png';
 import { logoStyles, boxStyle } from './styles'
-// import { TextInput } from 'react-native-gesture-handler';
+import { TextInput } from 'react-native-gesture-handler';
 
 export default function App() {
   return (
@@ -30,20 +30,12 @@ export default function App() {
         {/* Enter Values */}
         <View style={boxStyle.boxEnterAttrs}>
 
-            <View style={boxStyle.signUpItems}>
-                <Text style={boxStyle.signUpTextAttr}>Name (Company or Personal)</Text>
-                <TextInput style={boxStyle.signUpInputBox} placeholder="Enter text here"/>
+            <View>
+                <Text style={boxStyle.signUpTextAttr}>Name (COMPANY OR PERSONAL)</Text>
+                <TextInput placeholder="Enter text here"/>
             </View>
 
-            <View style={boxStyle.signUpItems}>
-                <Text style={boxStyle.signUpTextAttr}>Email</Text>
-                <TextInput style={boxStyle.signUpInputBox} placeholder="Enter text here"/>
-            </View>
 
-            <View style={boxStyle.signUpItems}>
-                <Text style={boxStyle.signUpTextAttr}>Password</Text>
-                <TextInput style={boxStyle.signUpInputBox} placeholder="Enter text here"/>
-            </View>
 
         </View>
 
