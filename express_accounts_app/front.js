@@ -3,7 +3,7 @@ import { Text, View, Image, ImageBackground, TouchableOpacity, ScrollView } from
 import logo from './assets/images/logo.png';
 import { logoStyles, boxStyle } from './styles'
 
-export default function App() {
+export default function Front({ navigation }) {
   return (
     <View style={logoStyles.container}>
       {/* <ImageBackground source={require('./assets/images/office_space.png')} style={logoStyles.backgroundImage} blurRadius={5}> */}
@@ -21,11 +21,11 @@ export default function App() {
         {/* Log in buttons */}
         <View style={boxStyle.box}>
 
-          <TouchableOpacity style={boxStyle.buttonLogIn}>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')} style={boxStyle.buttonLogIn}>
             <Text style={boxStyle.textButton}>Log in</Text>  
           </TouchableOpacity>
 
-          <TouchableOpacity style={boxStyle.buttonSignUp}>
+          <TouchableOpacity onPress={() => navigation.navigate('NewUser')} style={boxStyle.buttonSignUp}>
             <Text style={boxStyle.textButton}>Sign up</Text>  
           </TouchableOpacity>
 

@@ -4,7 +4,7 @@ import logo from './assets/images/logo.png';
 import { logoStyles, boxStyle } from './styles'
 // import { TextInput } from 'react-native-gesture-handler';
 
-export default function NewUser({ navigation }) {
+export default function Login({ navigation }) {
   return (
     <View style={logoStyles.container}>
       {/* <ImageBackground source={require('./assets/images/office_space.png')} style={logoStyles.backgroundImage} blurRadius={5}> */}
@@ -15,14 +15,14 @@ export default function NewUser({ navigation }) {
         {/* The log in message */}
         <View style={logoStyles.signInMessage}>
 
-          <Text style={boxStyle.create_account}>Create New Account</Text>
-
+          <Text style={boxStyle.create_account}>Sign in to continue</Text>
+{/* 
           <View style={logoStyles.alreadyRegistered}>
 
             <Text>Already Registered? Log in </Text>
             <Text style={logoStyles.here}>here</Text>
 
-          </View>
+          </View> */}
 
 
         </View>
@@ -30,12 +30,7 @@ export default function NewUser({ navigation }) {
         {/* Enter Values */}
         <View style={boxStyle.boxEnterAttrs}>
 
-            <View style={boxStyle.signUpItems}>
-                <Text style={boxStyle.signUpTextAttr}>Name (Company or Personal)</Text>
-                <TextInput style={boxStyle.signUpInputBox} placeholder="Your Name"/>
-            </View>
-
-            <View style={boxStyle.signUpItems}>
+        <View style={boxStyle.signUpItems}>
                 <Text style={boxStyle.signUpTextAttr}>Email</Text>
                 <TextInput style={boxStyle.signUpInputBox} placeholder="Your Email"/>
             </View>
@@ -45,10 +40,7 @@ export default function NewUser({ navigation }) {
                 <TextInput style={boxStyle.signUpInputBox} placeholder="Your Password"/>
             </View>
 
-            <View style={boxStyle.signUpItems}>
-                <Text style={boxStyle.signUpTextAttr}>Repeat Password</Text>
-                <TextInput style={boxStyle.signUpInputBox} placeholder="Your Password (again)"/>
-            </View>
+            
 
         </View>
 
