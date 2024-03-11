@@ -171,7 +171,7 @@ export const logoStyles = StyleSheet.create({
       },
     
     signUpInputBox: {
-        backgroundColor: "grey",
+        backgroundColor: "#c3c9c6",
         fontSize: 17,
         borderRadius: 5,
         padding: 3,
