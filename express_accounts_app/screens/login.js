@@ -30,17 +30,15 @@ export default function Login({ navigation }) {
         {/* Enter Values */}
         <View style={boxStyle.boxEnterAttrs}>
 
-        <View style={boxStyle.signUpItems}>
-                <Text style={boxStyle.signUpTextAttr}>Email</Text>
-                <TextInput style={boxStyle.signUpInputBox} placeholder="Your Email"/>
-            </View>
+          <View style={boxStyle.signUpItems}>
+            <Text style={boxStyle.signUpTextAttr}>Email</Text>
+            <TextInput style={boxStyle.signUpInputBox} placeholder="Your Email"/>
+          </View>
 
-            <View style={boxStyle.signUpItems}>
-                <Text style={boxStyle.signUpTextAttr}>Password</Text>
-                <TextInput style={boxStyle.signUpInputBox} placeholder="Your Password"/>
-            </View>
-
-            
+          <View style={boxStyle.signUpItems}>
+            <Text style={boxStyle.signUpTextAttr}>Password</Text>
+            <TextInput style={boxStyle.signUpInputBox} placeholder="Your Password"/>
+          </View>
 
         </View>
 
