@@ -30,7 +30,7 @@ export const logoStyles = StyleSheet.create({
     logo: {
       marginTop: 60,
       width: "90%", 
-      borderRadius: 100
+      borderRadius: 55
     },
 
     here: {
