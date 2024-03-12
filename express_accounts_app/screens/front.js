@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, ScrollView } from 'react-native';
-import logo from './assets/images/logo.png';
-import { logoStyles, boxStyle } from './styles'
+import logo from '../assets/images/logo.png';
+import { logoStyles, boxStyle } from '../styles'
 
 export default function Front({ navigation }) {
   return (
@@ -9,7 +9,7 @@ export default function Front({ navigation }) {
       {/* <ImageBackground source={require('./assets/images/office_space.png')} style={logoStyles.backgroundImage} blurRadius={5}> */}
 
         {/* The Logo at the top of the page */}
-        <Image source={require('./assets/images/logo.png')} style={logoStyles.logo}/>
+        <Image source={require('../assets/images/logo.png')} style={logoStyles.logo}/>
         
         {/* The log in message */}
         <View style={logoStyles.signInMessage}>
@@ -40,14 +40,14 @@ export default function Front({ navigation }) {
 
           <TouchableOpacity style={boxStyle.federatedButton}>
             
-            <Image source={require('./assets/images/google.png')} style={boxStyle.iconFederated} />           
+            <Image source={require('../assets/images/google.png')} style={boxStyle.iconFederated} />           
             <Text style={boxStyle.federatedText}>Google</Text>  
 
           </TouchableOpacity>
 
           <TouchableOpacity style={boxStyle.federatedButton}>
             
-            <Image source={require('./assets/images/Microsoft_logo.svg.png')} style={boxStyle.iconFederated} />           
+            <Image source={require('../assets/images/Microsoft_logo.svg.png')} style={boxStyle.iconFederated} />           
             <Text style={boxStyle.federatedText}>Microsoft</Text>  
 
           </TouchableOpacity>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity, TextInput } from 'react-native';
-import logo from './assets/images/logo.png';
-import { logoStyles, boxStyle } from './styles'
+import logo from '../assets/images/logo.png';
+import { logoStyles, boxStyle } from '../styles'
 // import { TextInput } from 'react-native-gesture-handler';
 
 export default function Login({ navigation }) {
@@ -10,7 +10,7 @@ export default function Login({ navigation }) {
       {/* <ImageBackground source={require('./assets/images/office_space.png')} style={logoStyles.backgroundImage} blurRadius={5}> */}
 
         {/* The Logo at the top of the page */}
-        <Image source={require('./assets/images/logo.png')} style={logoStyles.logo}/>
+        <Image source={require('../assets/images/logo.png')} style={logoStyles.logo}/>
 
         {/* The log in message */}
         <View style={logoStyles.signInMessage}>
