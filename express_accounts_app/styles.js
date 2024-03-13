@@ -24,7 +24,7 @@ export const logoStyles = StyleSheet.create({
     alreadyRegistered: {
         // flex: 3,
         flexDirection: 'row',
-        padding: 20
+        padding: 10
       },
   
     logo: {
