@@ -180,7 +180,7 @@ export const logoStyles = StyleSheet.create({
     },
 
     signUpItems: {
-        marginBottom: 30
+        marginBottom: 10
     }
 
 
