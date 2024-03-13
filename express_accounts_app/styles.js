@@ -34,7 +34,7 @@ export const logoStyles = StyleSheet.create({
     },
 
     here: {
-        color: "#a60d49",
+        color: "#312E74",
         fontWeight: 'bold'
       },
   
