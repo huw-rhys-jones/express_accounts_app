@@ -82,7 +82,7 @@ export const logoStyles = StyleSheet.create({
     create_account: {
         color: "#312e74",
         fontSize: 25,
-        padding: 20,
+        padding: 30,
         fontWeight: 'bold'
     
       },
