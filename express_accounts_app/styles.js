@@ -8,7 +8,7 @@ export const logoStyles = StyleSheet.create({
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'space-around',
-      backgroundColor: "##8F093E"
+      backgroundColor: "#8F093E"
     },
   
     backgroundImage: {
@@ -82,7 +82,7 @@ export const logoStyles = StyleSheet.create({
     create_account: {
         color: "#312e74",
         fontSize: 25,
-        padding: 10,
+        padding: 20,
         fontWeight: 'bold'
     
       },
