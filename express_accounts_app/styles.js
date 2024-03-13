@@ -8,7 +8,7 @@ export const logoStyles = StyleSheet.create({
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'space-around',
-      backgroundColor: "linear gradient 90 degrees:#a60d49,#312E74"
+      backgroundColor: "#a60d49"
     },
   
     backgroundImage: {
