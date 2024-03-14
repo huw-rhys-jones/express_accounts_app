@@ -34,14 +34,14 @@ export const logoStyles = StyleSheet.create({
     },
 
     here: {
-        color: "#312E74",
+        color: "#8F093E",
         fontWeight: 'bold'
       },
   
     signInMessage: {
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: 'white',
+      backgroundColor: '#8F093E',
       borderRadius: 100,
       width: "90%"
     }
@@ -52,20 +52,20 @@ export const logoStyles = StyleSheet.create({
   export const boxStyle = StyleSheet.create({
   
     box: {
-      flex: 0.35,
+      flex: 0.4,
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: 'white',
-      borderRadius: 30,
+      borderRadius: 50,
       width: "90%", 
       justifyContent: 'space-around',
     },
   
     textSignIn: {
-      color: "#312e74",
-      fontSize: 20.5,
-      padding: 10
+      color: "white",
+      fontSize: 16,
+      padding: 0
     },
   
     buttonLogIn: {
@@ -73,16 +73,16 @@ export const logoStyles = StyleSheet.create({
       backgroundColor: "#312e74",
       borderColor: "#a60d49",
       borderWidth: 5,
-      width: "80%",
+      width: "82%",
       alignItems: 'center',
       justifyContent: 'center',
-      borderRadius: 10,
+      borderRadius: 37,
     },
 
     create_account: {
         color: "#312e74",
         fontSize: 25,
-        padding: 40,
+        padding: 1,
         fontWeight: 'bold'
     
       },
@@ -97,10 +97,10 @@ export const logoStyles = StyleSheet.create({
       backgroundColor: "#a60d49",
       borderColor: "#312e74",
       borderWidth: 5,
-      width: "80%",
+      width: "82%",
       alignItems: 'center',
       justifyContent: 'center',
-      borderRadius: 10,
+      borderRadius: 37,
     },
   
     boxBottom: {
@@ -109,9 +109,9 @@ export const logoStyles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'flex-start',
       backgroundColor: 'white',
-      borderRadius: 30,
+      borderRadius: 37,
       width: "90%", 
-      marginBottom: 20
+      marginBottom: 37
     },
 
     boxEnterAttrs: {
@@ -120,7 +120,7 @@ export const logoStyles = StyleSheet.create({
         // alignItems: 'center',
         justifyContent: 'flex-start',
         backgroundColor: 'white',
-        borderRadius: 30,
+        borderRadius: 20,
         width: "90%", 
         marginBottom: 20,
         padding: 20
@@ -132,7 +132,7 @@ export const logoStyles = StyleSheet.create({
     },
   
     federatedInnerBox: {
-      flex: 1, 
+      flex: 10, 
       flexDirection: "vertical", 
       justifyContent: 'space-around', 
       width: "100%", 
@@ -167,7 +167,8 @@ export const logoStyles = StyleSheet.create({
     signUpTextAttr: {
         // textDecorationLine: 'underline',
         fontSize: 17,
-        marginBottom:5
+        marginBottom:2
+        
       },
     
     signUpInputBox: {
