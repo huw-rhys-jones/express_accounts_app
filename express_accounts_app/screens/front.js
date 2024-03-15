@@ -45,10 +45,10 @@ export default function Front({ navigation }) {
 
           </TouchableOpacity>
 
-          <TouchableOpacity style={boxStyle.federatedButton}>
+          <TouchableOpacity style={boxStyle.federatedButtonMicrosoft}>
             
             <Image source={require('../assets/images/Microsoft_logo.svg.png')} style={boxStyle.iconFederated} />           
-            <Text style={boxStyle.federatedText}>Microsoft</Text>  
+            <Text style={boxStyle.federatedTextMicrosoft}>Microsoft</Text>  
 
           </TouchableOpacity>
           </View>
