@@ -41,7 +41,7 @@ export const logoStyles = StyleSheet.create({
     signInMessage: {
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#8F093E',
+      // backgroundColor: '#8F093E',
       borderRadius: 100,
       width: "90%"
     }
@@ -52,14 +52,15 @@ export const logoStyles = StyleSheet.create({
   export const boxStyle = StyleSheet.create({
   
     box: {
-      flex: 0.4,
+      flex: 0.38,
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: 'white',
+      backgroundColor: 'rgba(255,255,255,0.8)',
       borderRadius: 50,
       width: "90%", 
-      justifyContent: 'space-around',
+      // justifyContent: 'space-around',
+      
     },
   
     textSignIn: {
@@ -77,6 +78,7 @@ export const logoStyles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: 37,
+      marginBottom:25
     },
 
     create_account: {
