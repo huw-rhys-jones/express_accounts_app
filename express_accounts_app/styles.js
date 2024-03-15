@@ -56,7 +56,7 @@ export const logoStyles = StyleSheet.create({
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: 'rgba(255,255,255,0.8)',
+      backgroundColor: 'rgba(255,255,255,0.76)',
       borderRadius: 50,
       width: "90%", 
       // justifyContent: 'space-around',
@@ -66,11 +66,11 @@ export const logoStyles = StyleSheet.create({
     textSignIn: {
       color: "white",
       fontSize: 16,
-      padding: 0
+      padding: 1
     },
   
     buttonLogIn: {
-      flex: 0.3,
+      flex: 0.35,
       backgroundColor: "#312e74",
       borderColor: "#a60d49",
       borderWidth: 5,
@@ -95,7 +95,7 @@ export const logoStyles = StyleSheet.create({
     },
   
     buttonSignUp: {
-      flex: 0.3,
+      flex: 0.35,
       backgroundColor: "#a60d49",
       borderColor: "#312e74",
       borderWidth: 5,
@@ -110,7 +110,7 @@ export const logoStyles = StyleSheet.create({
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'flex-start',
-      backgroundColor: 'white',
+      backgroundColor: 'rgba(255,255,255,0.76)',
       borderRadius: 37,
       width: "90%", 
       marginBottom: 37
@@ -121,7 +121,7 @@ export const logoStyles = StyleSheet.create({
         flexDirection: "column",
         // alignItems: 'center',
         justifyContent: 'flex-start',
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(255,255,255,0.78)',
         borderRadius: 20,
         width: "90%", 
         marginBottom: 20,
@@ -130,7 +130,8 @@ export const logoStyles = StyleSheet.create({
   
     federatedTextLogIn: {
       textDecorationLine: 'underline',
-      fontSize: 15
+      fontSize: 15,
+      marginTop:10
     },
   
     federatedInnerBox: {
@@ -139,21 +140,43 @@ export const logoStyles = StyleSheet.create({
       justifyContent: 'space-around', 
       width: "100%", 
       alignItems: "center"
+    
+
     },
   
     federatedButton: {
-      flex: 0.35,
+      flex: 0.4,
       flexDirection: "row",
       borderColor: "#312e74",
       borderWidth: 5,
       width: "80%",
       alignItems: 'center',
       justifyContent: 'flex-start',
-      borderRadius: 10,
+      borderRadius: 20,
+      marginBottom:12
+    },
+
+    federatedButtonMicrosoft: {
+      flex: 0.4,
+      flexDirection: "row",
+      borderColor: "#312e74",
+      borderWidth: 5,
+      width: "80%",
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      borderRadius: 20,
+      marginBottom:12,
     },
   
     federatedText: {
       marginLeft: "22%",
+      color: "black",
+      fontSize: 25
+  
+    },
+
+    federatedTextMicrosoft: {
+      marginLeft: "18%",
       color: "black",
       fontSize: 25
   
