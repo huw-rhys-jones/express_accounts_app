@@ -186,3 +186,91 @@ export const logoStyles = StyleSheet.create({
 
   
   })
+
+  export const receipt = StyleSheet.create({
+
+    container: {
+      flex: 1,
+      flexDirection: "column",
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      backgroundColor: "white",
+      marginTop: 25
+    },
+
+    containerTitle: {
+      // flex: 1,
+      borderBottomColor: "black",
+      borderBottomWidth: 2,
+      borderTopColor: "black",
+      borderTopWidth: 2,
+      width: "100%",
+      backgroundColor: "#3896e0"
+    },
+
+    textTitle: {
+      color: "#312e74",
+      fontSize: 20.5,
+      padding: 10,
+      // borderColor: "black",
+      // borderWidth: 1,
+      // width: "100%",
+      textAlign: "center"
+    },
+
+    dataValuesPanel: {
+      flex: 4,
+      justifyContent: "flex-start",
+      width: "75%",
+      // marginLeft: 50
+
+
+    },
+
+    dataValuesItem: {
+
+      marginVertical: 15
+
+    },
+
+    itemTitle: {
+      color: "#312e74",
+      fontSize: 20.5,
+      textAlign: "left",
+      fontWeight: "bold"
+
+    },
+
+    moneyRow: {
+      marginTop: 5,
+      flexDirection: "row"
+    },
+
+    buttonsBottom: {
+      flexDirection: "row",
+      borderTopColor: "black",
+      borderTopWidth: 2,
+      width: "100%",
+      justifyContent: "space-around"
+    },
+
+    button: {
+      borderColor: "#312e74",
+      borderRadius: 5,
+      borderWidth: 2,
+      backgroundColor: "#a60d49",
+      width: "35%",
+      marginVertical: 15,
+      padding: 5
+    },
+
+    buttonText: {
+      textAlign: "center",
+      color: "white",
+      fontSize: 25
+    }
+
+
+
+
+  })
