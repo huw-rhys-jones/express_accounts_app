@@ -1,18 +1,31 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity, TextInput } from 'react-native';
+import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown'
 import { receipt } from '../styles' 
-import DatePicker from 'react-native-date-picker'
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 
 
 const currencies = ["£", "€", "$"]
-const d = new Date();
+// const d = new Date();
 
 export default function ReceiptData({ navigation }) {
 
   const [date, setDate] = useState(new Date())
-  const [open, setOpen] = useState(true)
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = (date) => {
+    setDate(date)
+    hideDatePicker();
+  };
 
   return (
     <View style={receipt.container}>
@@ -40,7 +53,7 @@ export default function ReceiptData({ navigation }) {
               buttonStyle={{backgroundColor: "black", width: 40, height: 40, borderRadius: 5}}
               buttonTextStyle={{color: "white"}}/>
 
-            <TextInput style={{backgroundColor: "#b3bac0", flex: 0.75, marginLeft: 5, borderRadius: 5, padding: 5}}/>
+            <TextInput placeholder={"Amount on Receipt"} keyboardType='numeric' style={{backgroundColor: "#b3bac0", flex: 0.75, marginLeft: 5, borderRadius: 5, padding: 5}}/>
 
           </View>
 
@@ -54,17 +67,15 @@ export default function ReceiptData({ navigation }) {
           
           <View style={receipt.moneyRow}>
 
-            <TouchableOpacity style={{backgroundColor: "#b3bac0", flex: 0.75, marginLeft: 5, borderRadius: 5, padding: 5, height: 40}}> 
-                <Text style={{backgroundColor: "#b3bac0", flex: 0.75, marginLeft: 5, borderRadius: 5, padding: 5, textAlign: "center", fontSize: 20}}>{d.getDate()}/{d.getMonth()+1}/{d.getFullYear()}</Text>   
+            <TouchableOpacity onPress={showDatePicker} style={{backgroundColor: "#b3bac0", flex: 0.75, marginLeft: 5, borderRadius: 5, padding: 5, height: 40}}> 
+                <Text style={{backgroundColor: "#b3bac0", flex: 0.75, marginLeft: 5, borderRadius: 5, padding: 5, textAlign: "center", fontSize: 20}}>{date.getDate()}/{date.getMonth()+1}/{date.getFullYear()}</Text>   
 
-                <DatePicker modal open={open} date={date} 
-                            onConfirm={(date) => {
-                            setOpen(true)
-                            setDate(date)
-                          }}
-                          onCancel={() => {
-                            setOpen(false)
-                          }}/>
+                <DateTimePickerModal
+                  isVisible={isDatePickerVisible}
+                  mode="date"
+                  onConfirm={handleConfirm}
+                  onCancel={hideDatePicker}
+                />
 
             </TouchableOpacity>
 
