@@ -222,9 +222,6 @@ export const logoStyles = StyleSheet.create({
       flex: 4,
       justifyContent: "flex-start",
       width: "75%",
-      // marginLeft: 50
-
-
     },
 
     dataValuesItem: {
@@ -252,6 +249,14 @@ export const logoStyles = StyleSheet.create({
       borderTopWidth: 2,
       width: "100%",
       justifyContent: "space-around"
+    },
+
+    receiptPanel: {
+      flex: 4,
+      justifyContent: "flex-start",
+      width: "100%",
+      borderTopColor: "black",
+      borderTopWidth: 2
     },
 
     button: {
