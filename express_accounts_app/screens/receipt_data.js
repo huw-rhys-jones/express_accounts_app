@@ -47,10 +47,10 @@ export default function ReceiptData({ navigation }) {
 	            onSelect={(selectedItem, index) => {
 		          console.log(selectedItem, index)}}
               defaultValueByIndex={0}
-              buttonStyle={{backgroundColor: "black", width: 50, height: 40, borderRadius: 5}}
+              buttonStyle={receipt.currencySelector}
               buttonTextStyle={{color: "white"}}/>
 
-            <TextInput placeholder={"Amount on Receipt"} keyboardType='numeric' style={{backgroundColor: "#b3bac0", flex: 0.75, marginLeft: 5, borderRadius: 5, padding: 5}}/>
+            <TextInput placeholder={"Amount on Receipt"} keyboardType='numeric' style={receipt.amountInput}/>
 
           </View>
 
@@ -64,8 +64,8 @@ export default function ReceiptData({ navigation }) {
           
           <View style={receipt.moneyRow}>
 
-            <TouchableOpacity onPress={showDatePicker} style={{backgroundColor: "#b3bac0", flex: 0.75, marginLeft: 5, borderRadius: 5, padding: 5, height: 40}}> 
-                <Text style={{backgroundColor: "#b3bac0", flex: 0.75, marginLeft: 5, borderRadius: 5, padding: 5, textAlign: "center", fontSize: 20}}>{date.getDate()}/{date.getMonth()+1}/{date.getFullYear()}</Text>   
+            <TouchableOpacity onPress={showDatePicker} style={receipt.dateOuter}> 
+                <Text style={receipt.dateInner}>{date.getDate()}/{date.getMonth()+1}/{date.getFullYear()}</Text>   
 
                 <DateTimePickerModal
                   isVisible={isDatePickerVisible}
@@ -94,8 +94,8 @@ export default function ReceiptData({ navigation }) {
 	            onSelect={(selectedItem, index) => {
 		          console.log(selectedItem, index)}}
               defaultValueByIndex={0}
-              buttonStyle={{backgroundColor: "black", width: 200, height: 40, borderRadius: 5}}
-              buttonTextStyle={{color: "white"}}/>
+              buttonStyle={receipt.categoryDropdown}
+              buttonTextStyle={receipt.categoryText}/>
 
           </View>
 
@@ -106,13 +106,13 @@ export default function ReceiptData({ navigation }) {
       {/* Pictures of the receipt(s) */}
       <View style={receipt.receiptPanel}>
 
-        <TouchableOpacity style={{flex: 0.8, width: "25%", backgroundColor: "#d9d9d9", margin: 10, justifyContent: "center", alignItems: "center"}}>
+        <TouchableOpacity style={receipt.receiptImageBox}>
           
-          <View style={{backgroundColor: "grey", padding: 5, borderRadius: 20, height: 30, width: 30, justifyContent: "center", alignItems: "center" }}>
+          <View style={receipt.receiptImageAdd}>
             <Icon 
-              name="plus" 
-              size={15} 
-              color={"white"} 
+              name={receipt.receiptImageIcon.name}
+              size={receipt.receiptImageIcon.size} 
+              color={receipt.receiptImageIcon.color} 
               // style={styles.topBarButtonIcon.style} 
             />
           </View>  

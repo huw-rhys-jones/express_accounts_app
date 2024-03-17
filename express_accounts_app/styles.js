@@ -259,6 +259,76 @@ export const logoStyles = StyleSheet.create({
       borderTopWidth: 2
     },
 
+    currencySelector: {
+      backgroundColor: "black", 
+      width: 50, 
+      height: 40, 
+      borderRadius: 5
+    },
+
+    amountInput: {
+      backgroundColor: "#b3bac0", 
+      flex: 0.75, 
+      marginLeft: 5, 
+      borderRadius: 5, 
+      padding: 5
+    },
+
+    dateOuter: {
+      backgroundColor: "#b3bac0", 
+      flex: 0.75, 
+      marginLeft: 5, 
+      borderRadius: 5, 
+      padding: 5, 
+      height: 40
+    },
+
+    dateInner: {
+      backgroundColor: "#b3bac0", 
+      flex: 0.75, 
+      marginLeft: 5, 
+      borderRadius: 5, 
+      padding: 5, 
+      textAlign: "center", 
+      fontSize: 20
+    },
+
+    categoryDropdown: {
+      backgroundColor: "black", 
+      width: 200, 
+      height: 40, 
+      borderRadius: 5
+    },
+
+    categoryText: {
+      color: "white"
+    },
+
+    receiptImageBox: {
+      flex: 0.8, 
+      width: "25%", 
+      backgroundColor: "#d9d9d9", 
+      margin: 10, 
+      justifyContent: "center", 
+      alignItems: "center"
+    },
+
+    receiptImageAdd: {
+      backgroundColor: "grey", 
+      padding: 5, 
+      borderRadius: 20, 
+      height: 30, 
+      width: 30, 
+      justifyContent: "center", 
+      alignItems: "center" 
+    },
+
+    receiptImageIcon: {
+      name: "plus",
+      size: 15,
+      color: "white"
+    },
+
     button: {
       borderColor: "#312e74",
       borderRadius: 5,
