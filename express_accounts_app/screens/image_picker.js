@@ -3,10 +3,25 @@ import { Button, Image, View, Platform, Dimensions, ScrollView } from 'react-nat
 import * as ImagePicker from 'expo-image-picker';
 import MlkitOcr from 'react-native-mlkit-ocr';
 
+export const pickImage = async () => {
+  // No permissions request is necessary for launching the image library
+  let result = await ImagePicker.launchImageLibraryAsync({
+    mediaTypes: ImagePicker.MediaTypeOptions.All,
+    allowsEditing: true,
+    // aspect: [4, 3],
+    quality: 1,
+    // base64: true
+  });
 
-export default function ImagePicking() {
-  const [image, setImage] = useState(null);
+
+  if (!result.canceled) {
+    return result
+  }
+}
+
+export default function ImagePicking({ route, navigation }) {
   const [resultFromUri, setResult] = useState(null);
+  const [image, setImage] = useState(null);
 
   const recognizeTextFromImage = async (result) => {
 
@@ -21,14 +36,18 @@ export default function ImagePicking() {
       });
     })}
  
+  };  
+  
 
+  if (route.params && !image) {
+    setImage(route.params.assets[0]);
+    recognizeTextFromImage(route.params)
 
-
-  };
+  } 
 
   function fitWidth(value, imageWidth) {
     const fullWidth = Dimensions.get('window').width;
-    console.log(image)
+    // console.log(image)
     if (image) {return (value / imageWidth) * fullWidth;}
     // 
   }
@@ -38,33 +57,22 @@ export default function ImagePicking() {
     if (image) {return (value / imageHeight) * fullHeight};
   }
 
-  const pickImage = async () => {
-    // No permissions request is necessary for launching the image library
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      // allowsEditing: true,
-      // aspect: [4, 3],
-      quality: 1,
-      // base64: true
-    });
 
-    
-
-    // console.log(result);
-
-    if (!result.canceled) {
-      await recognizeTextFromImage(result)
-      setImage(result.assets[0]);
+  const selectImage = async () => {
+    const pickerResult = await pickImage()
+    if (pickerResult) {
+      await recognizeTextFromImage(pickerResult)
+      setImage(pickerResult.assets[0]);
     }
-  };
+  }
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button title="Pick an image fm camera roll" onPress={pickImage} />
+      <Button title="Pick an image fm camera roll" onPress={selectImage} />
 
       <ScrollView>
-        <View>        
-          {image && <Image source={{ uri: image.uri }} style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height }} />}
+        <View style={{height: Dimensions.get('window').height, width: Dimensions.get('window').width}}>        
+          {image && <Image source={{ uri: image.uri }} style={{ flex: 1, width: null, height: null, resizeMode: "contain" }} />}
           {resultFromUri?.map((block) => {
                 return block.lines.map((line) => {
                   return (

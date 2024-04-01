@@ -288,7 +288,7 @@ export const logoStyles = StyleSheet.create({
       flex: 0.75, 
       marginLeft: 5, 
       borderRadius: 5, 
-      padding: 5, 
+      // padding: 5, 
       textAlign: "center", 
       fontSize: 20
     },
