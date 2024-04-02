@@ -6,12 +6,17 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { currencies, expense_categories } from '../constants/arrays'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { pickImage } from '../screens/image_picker'
+// import { launch_camera } from './camera';
+import { Camera } from "expo-camera";
+import Picture_Taker from '../screens/camera'
 
 export default function ReceiptData({ navigation }) {
 
   const [date, setDate] = useState(new Date())
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
+  const [status, requestPermission] = Camera.useCameraPermissions();
+  const [showCamera, setShowCamera] = useState(false)
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
@@ -35,8 +40,23 @@ export default function ReceiptData({ navigation }) {
     }
   }
 
+  const launch_camera = async () => {
+
+    if (!status?.granted) {
+
+      await requestPermission(status, requestPermission)
+
+    }
+
+    // setShowCamera(true)
+}
+
   return (
+    
+    
     <View style={receipt.container}>
+
+      {showCamera ? (Picture_Taker()): null}
 
       <Modal
         animationType="slide"
@@ -60,7 +80,8 @@ export default function ReceiptData({ navigation }) {
 
               <View style={receipt.buttonsBottom}>
 
-                <TouchableOpacity style={{borderColor: "#312e74", justifyContent: "center", borderRadius: 5, borderWidth: 2, backgroundColor: "#a60d49", width: "35%", marginVertical: 15, padding: 5}}>
+                <TouchableOpacity onPress={() => launch_camera()}
+                  style={{borderColor: "#312e74", justifyContent: "center", borderRadius: 5, borderWidth: 2, backgroundColor: "#a60d49", width: "35%", marginVertical: 15, padding: 5}}>
                   <Text style={{textAlign: "center", color: "white", fontSize: 20}}>Camera</Text>
                 </TouchableOpacity>
 
@@ -189,7 +210,7 @@ export default function ReceiptData({ navigation }) {
 
       </View>
 
-
+              
 
     </View>
   );
