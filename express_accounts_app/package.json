@@ -29,7 +29,8 @@
     "react-native-select-dropdown": "^3.4.0",
     "react-native-vector-icons": "^10.0.3",
     "react-native-web": "~0.19.6",
-    "react-native-webview": "^13.8.4"
+    "react-native-webview": "^13.8.4",
+    "expo-modules-core": "~1.11.12"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3"
