@@ -29,7 +29,7 @@ export const logoStyles = StyleSheet.create({
   
     logo: {
       marginTop: 60,
-      width: "90%", 
+      width: "100%", 
       borderRadius: 100
     },
 
@@ -43,7 +43,9 @@ export const logoStyles = StyleSheet.create({
       justifyContent: 'center',
       // backgroundColor: '#8F093E',
       borderRadius: 100,
-      width: "90%"
+      width: "90%",
+      
+
     }
   
   
@@ -56,7 +58,7 @@ export const logoStyles = StyleSheet.create({
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: 'rgba(255,255,255,0.76)',
+      backgroundColor: 'rgba(255,255,255,0.70)',
       borderRadius: 50,
       width: "90%", 
       // justifyContent: 'space-around',
@@ -110,7 +112,7 @@ export const logoStyles = StyleSheet.create({
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'flex-start',
-      backgroundColor: 'rgba(255,255,255,0.76)',
+      backgroundColor: 'rgba(255,255,255,0.70)',
       borderRadius: 37,
       width: "90%", 
       marginBottom: 37
@@ -122,7 +124,7 @@ export const logoStyles = StyleSheet.create({
         // alignItems: 'center',
         justifyContent: 'flex-start',
         backgroundColor: 'rgba(255,255,255,0.78)',
-        borderRadius: 20,
+        borderRadius: 37,
         width: "90%", 
         marginBottom: 20,
         padding: 20
@@ -152,7 +154,7 @@ export const logoStyles = StyleSheet.create({
       width: "80%",
       alignItems: 'center',
       justifyContent: 'flex-start',
-      borderRadius: 20,
+      borderRadius: 37,
       marginBottom:12
     },
 
@@ -164,7 +166,7 @@ export const logoStyles = StyleSheet.create({
       width: "80%",
       alignItems: 'center',
       justifyContent: 'flex-start',
-      borderRadius: 20,
+      borderRadius: 37,
       marginBottom:12,
     },
   
