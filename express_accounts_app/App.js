@@ -19,7 +19,7 @@ function App() {
         <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
         <Stack.Screen options={{ headerShown: false }} name="NewUser" component={NewUser} />
         <Stack.Screen options={{ headerShown: false }} name="ReceiptData" component={ReceiptData} />
-        <Stack.Screen options={{ headerShown: false }} name="Picking" component={ImagePicking} />
+        <Stack.Screen options={{ headerShown: false }} name="picking" component={ImagePicking} />
         <Stack.Screen options={{ headerShown: false }} name="Camera" component={Cam} />
       </Stack.Navigator>
     </NavigationContainer>
