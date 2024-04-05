@@ -13,6 +13,7 @@
     "expo-font": "~11.10.2",
     "expo-image-picker": "^14.7.1",
     "expo-linking": "~6.2.2",
+    "expo-modules-core": "~1.11.12",
     "expo-splash-screen": "~0.26.3",
     "expo-status-bar": "~1.11.1",
     "expo-web-browser": "~12.8.1",
@@ -29,8 +30,7 @@
     "react-native-select-dropdown": "^3.4.0",
     "react-native-vector-icons": "^10.0.3",
     "react-native-web": "~0.19.6",
-    "react-native-webview": "^13.8.4",
-    "expo-modules-core": "~1.11.12"
+    "react-native-webview": "^13.8.4"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3"

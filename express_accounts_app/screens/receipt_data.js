@@ -47,8 +47,9 @@ export default function ReceiptData({ navigation }) {
       await requestPermission(status, requestPermission)
 
     }
-
-    // setShowCamera(true)
+    
+    setModalVisible(!modalVisible);
+    navigation.navigate('Camera')
 }
 
   return (

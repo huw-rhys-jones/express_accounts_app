@@ -8,6 +8,7 @@ import {
   View,
   StatusBar
 } from "react-native";
+import Icon from 'react-native-vector-icons/FontAwesome6';
 
 export default function Cam({ navigation }) {
   const [status, requestPermission] = Camera.useCameraPermissions();
@@ -56,6 +57,11 @@ export default function Cam({ navigation }) {
     // TODO - implement this at some point
     // https://stackoverflow.com/questions/67901368/how-to-implement-tap-on-focus-in-react-natie-using-expo-camera
     <Camera style={{ flex: 1 }} type={type} ref={cameraRef} autoFocus={Camera.Constants.AutoFocus.on}>
+      
+      <TouchableOpacity onPress={() => navigation.goBack()} style={{backgroundColor: '#080808af', width: 30, justifyContent: "center", alignContent: "center", padding: 5, margin: 5, borderRadius: 4 }}>
+        <Icon name="x" style={{alignSelf: "center"}} size={20} color="white" />
+      </TouchableOpacity>
+      
       <View
         style={{
           flex: 1,
@@ -65,6 +71,7 @@ export default function Cam({ navigation }) {
           width: "100%"
         }}
       >
+        
         <StatusBar hidden />
         <View style={{
             // flex: 0.2,
@@ -99,6 +106,8 @@ export default function Cam({ navigation }) {
             >
             <Text style={{ fontSize: 30, padding: 10, color: "white" }}></Text>
           </TouchableOpacity> 
+
+          
 
 
 
