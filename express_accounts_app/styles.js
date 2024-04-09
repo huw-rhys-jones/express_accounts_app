@@ -31,7 +31,7 @@ export const logoStyles = StyleSheet.create({
       marginTop: 60,
      // width: "100%", 
       borderRadius: 100,
-      flex:0.2,
+      flex:0.19,
       //flexDirection:"row"
 
       
@@ -60,13 +60,13 @@ export const logoStyles = StyleSheet.create({
   export const boxStyle = StyleSheet.create({
   
     box: {
-      flex: 0.30,
+      flex: 0.308,
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: 'rgba(255,255,255,0.70)',
-      borderRadius: 50,
-      width: "90%", 
+      borderRadius: 45,
+      width: "87%", 
       // justifyContent: 'space-around',
       
     },
@@ -114,13 +114,13 @@ export const logoStyles = StyleSheet.create({
     },
   
     boxBottom: {
-      flex: 0.30,
+      flex: 0.282,
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'flex-start',
       backgroundColor: 'rgba(255,255,255,0.70)',
-      borderRadius: 37,
-      width: "90%", 
+      borderRadius: 45,
+      width: "87%", 
       marginBottom: 37
     },
 
@@ -180,21 +180,21 @@ export const logoStyles = StyleSheet.create({
     },
   
     federatedText: {
-      marginLeft: "22%",
+      marginLeft: "18%",
       color: "black",
       fontSize: 25
   
     },
 
     federatedTextMicrosoft: {
-      marginLeft: "18%",
+      marginLeft: "13.5%",
       color: "black",
       fontSize: 25
   
     },
   
     iconFederated: {
-      marginLeft: 10,
+      marginLeft: 18,
       height: 30,
       width: 30,
       // flex: 1
