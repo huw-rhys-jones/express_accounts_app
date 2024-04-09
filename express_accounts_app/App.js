@@ -1,3 +1,17 @@
+// TODO -----------
+
+// Firebase login
+// Federated login
+
+// On image tab, currency/amount/date/category boxes
+//  extract above image from detected text
+// replace button in image tab with touchable opactity 
+// aforementioned button should launch camera/picker seect modal
+
+// Convert sizes to flex
+
+// DONE -----------
+
 import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';

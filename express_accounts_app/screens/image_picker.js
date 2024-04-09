@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Image, View, Platform, Dimensions, ScrollView } from 'react-native';
+import { Button, Image, View, Platform, Dimensions, ScrollView, Text, TextInput } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import MlkitOcr from 'react-native-mlkit-ocr';
 
@@ -22,6 +22,12 @@ export const pickImage = async () => {
 export default function ImagePicking({ route, navigation }) {
   const [resultFromUri, setResult] = useState(null);
   const [image, setImage] = useState(null);
+
+
+  const [detectedCurrency, setDetectedCurrency] = useState(null);
+  const [detectedAmount, setDetectedAmount] = useState(null);
+  const [detectedDate, setDetectedDate] = useState(null);
+  const [detectedCategory, setDetectedCategory] = useState(null);
 
   const recognizeTextFromImage = async (result) => {
 
@@ -69,6 +75,19 @@ export default function ImagePicking({ route, navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', marginTop: 10 }}>
       <Button title="Pick an image fm camera roll" onPress={selectImage} />
+
+      {resultFromUri ? <View>
+
+        <View> 
+
+          <Text>Currency detected: {detectedCurrency}</Text>
+          <Text>Amount detected: {detectedAmount}</Text>
+          <Text>Date detected: {detectedDate}</Text>
+          <Text>Category detected: {detectedDate}</Text>
+
+        </View>
+
+      </View> : <Text> Nothing detected! </Text> }
 
       <ScrollView>
         <View style={{height: Dimensions.get('window').height, width: Dimensions.get('window').width}}>        
