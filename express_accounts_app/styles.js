@@ -29,8 +29,13 @@ export const logoStyles = StyleSheet.create({
   
     logo: {
       marginTop: 60,
-      width: "100%", 
-      borderRadius: 100
+     // width: "100%", 
+      borderRadius: 100,
+      flex:0.2,
+      //flexDirection:"row"
+
+      
+
     },
 
     here: {
@@ -44,6 +49,7 @@ export const logoStyles = StyleSheet.create({
       // backgroundColor: '#8F093E',
       borderRadius: 100,
       width: "90%",
+     
       
 
     }
@@ -54,7 +60,7 @@ export const logoStyles = StyleSheet.create({
   export const boxStyle = StyleSheet.create({
   
     box: {
-      flex: 0.38,
+      flex: 0.30,
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'center',
@@ -108,7 +114,7 @@ export const logoStyles = StyleSheet.create({
     },
   
     boxBottom: {
-      flex: 0.35,
+      flex: 0.30,
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'flex-start',
@@ -142,6 +148,7 @@ export const logoStyles = StyleSheet.create({
       justifyContent: 'space-around', 
       width: "100%", 
       alignItems: "center"
+      
     
 
     },
@@ -150,6 +157,7 @@ export const logoStyles = StyleSheet.create({
       flex: 0.4,
       flexDirection: "row",
       borderColor: "#312e74",
+      backgroundColor: "white",
       borderWidth: 5,
       width: "80%",
       alignItems: 'center',
@@ -162,6 +170,7 @@ export const logoStyles = StyleSheet.create({
       flex: 0.4,
       flexDirection: "row",
       borderColor: "#312e74",
+      backgroundColor: "white",
       borderWidth: 5,
       width: "80%",
       alignItems: 'center',
