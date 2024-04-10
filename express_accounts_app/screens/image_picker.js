@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Image, View, Platform, Dimensions, ScrollView, Text, TextInput } from 'react-native';
+import { Button, Image, View, TouchableOpacity, Dimensions, ScrollView, Text, TextInput } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import MlkitOcr from 'react-native-mlkit-ocr';
+import { images } from '../styles'
 
 export const pickImage = async () => {
   // No permissions request is necessary for launching the image library
@@ -24,10 +25,10 @@ export default function ImagePicking({ route, navigation }) {
   const [image, setImage] = useState(null);
 
 
-  const [detectedCurrency, setDetectedCurrency] = useState(null);
-  const [detectedAmount, setDetectedAmount] = useState(null);
-  const [detectedDate, setDetectedDate] = useState(null);
-  const [detectedCategory, setDetectedCategory] = useState(null);
+  const [detectedCurrency, setDetectedCurrency] = useState("£");
+  const [detectedAmount, setDetectedAmount] = useState("101.13");
+  const [detectedDate, setDetectedDate] = useState("20/07/2023");
+  const [detectedCategory, setDetectedCategory] = useState("Accomodation");
 
   const recognizeTextFromImage = async (result) => {
 
@@ -67,31 +68,47 @@ export default function ImagePicking({ route, navigation }) {
   const selectImage = async () => {
     const pickerResult = await pickImage()
     if (pickerResult) {
-      await recognizeTextFromImage(pickerResult)
+      // console.log(pickerResult.assets[0].uri)
+      // await recognizeTextFromImage(pickerResult)
       setImage(pickerResult.assets[0]);
     }
   }
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', marginTop: 10 }}>
-      <Button title="Pick an image fm camera roll" onPress={selectImage} />
 
-      {resultFromUri ? <View>
+      <TouchableOpacity onPress={selectImage} style={images.imageButton}>
+        <Text style={images.imageButtonText}>Change Image</Text>
+      </TouchableOpacity>
 
+      {/* {resultFromUri ? */}
+      <View style={images.detectBox}> 
+      
         <View> 
 
-          <Text>Currency detected: {detectedCurrency}</Text>
-          <Text>Amount detected: {detectedAmount}</Text>
-          <Text>Date detected: {detectedDate}</Text>
-          <Text>Category detected: {detectedDate}</Text>
+          <Text style={images.detectText}>Currency detected: </Text>
+          <Text style={images.detectText}>Amount detected: </Text>
+          <Text style={images.detectText}>Date detected: </Text>
+          <Text style={images.detectText}>Category detected: </Text>
 
         </View>
 
-      </View> : <Text> Nothing detected! </Text> }
+        <View> 
+
+          <Text style={images.detectText}>{detectedCurrency}</Text>
+          <Text style={images.detectText}>{detectedAmount}</Text>
+          <Text style={images.detectText}>{detectedDate}</Text>
+          <Text style={images.detectText}>{detectedCategory}</Text>
+
+        </View>
+
+
+      </View> 
+      {/* : <Text> Nothing detected! </Text> } */}
 
       <ScrollView>
         <View style={{height: Dimensions.get('window').height, width: Dimensions.get('window').width}}>        
-          {image && <Image source={{ uri: image.uri }} style={{ flex: 1, width: null, height: null, resizeMode: "contain" }} />}
+          {image && <Image source={{ uri: image.uri }} style={{ flex: 0.75, width: null, height: null, resizeMode: "contain" }} />}
           {resultFromUri?.map((block) => {
                 return block.lines.map((line) => {
                   return (

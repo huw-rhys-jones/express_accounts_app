@@ -345,7 +345,37 @@ export const logoStyles = StyleSheet.create({
       fontSize: 25
     }
 
+  })
 
 
+  export const images = StyleSheet.create({
 
+    imageButton: {
+                // flex: 2,
+                 backgroundColor: "#28BDC0", 
+                 marginTop: 12,
+                 margin: 5,
+                 padding: 5,
+                 borderRadius: 5
+    },
+    imageButtonText: {
+                 color: "white",
+                 fontSize: 25
+    },
+    
+    detectBox: {
+                 flexDirection: "row",
+                 marginVertical: 5,
+                 borderWidth: 1,
+                 borderColor: "black",
+                 padding: 5
+    },
+
+    detectText: {
+                 fontSize: 15,
+                 marginTop: 3
+    },
+
+
+  
   })

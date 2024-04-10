@@ -6,7 +6,7 @@ import { logoStyles, boxStyle } from '../styles'
 export default function Front({ navigation }) {
   return (
     <View style={logoStyles.container}>
-      {/* <ImageBackground source={require('./assets/images/office_space.png')} style={logoStyles.backgroundImage} blurRadius={5}> */}
+      <ImageBackground source={require('../assets/images/office_space.png')} style={logoStyles.backgroundImage} blurRadius={5}>
 
         {/* The Logo at the top of the page */}
         <Image source={require('../assets/images/logo.png')} style={logoStyles.logo}/>
@@ -56,7 +56,7 @@ export default function Front({ navigation }) {
 
 
 
-      {/* </ImageBackground>  */}
+      </ImageBackground> 
       
     </View>
   );
