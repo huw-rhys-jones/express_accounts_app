@@ -60,13 +60,13 @@ export const logoStyles = StyleSheet.create({
   export const boxStyle = StyleSheet.create({
   
     box: {
-      flex: 0.308,
+      flex: 0.32,
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: 'rgba(255,255,255,0.70)',
+      backgroundColor: 'rgba(255,255,255,0.55)',
       borderRadius: 45,
-      width: "87%", 
+      width: "86%", 
       // justifyContent: 'space-around',
       
     },
@@ -78,7 +78,7 @@ export const logoStyles = StyleSheet.create({
     },
   
     buttonLogIn: {
-      flex: 0.35,
+      flex: 0.33,
       backgroundColor: "#312e74",
       borderColor: "#a60d49",
       borderWidth: 5,
@@ -103,7 +103,7 @@ export const logoStyles = StyleSheet.create({
     },
   
     buttonSignUp: {
-      flex: 0.35,
+      flex: 0.33,
       backgroundColor: "#a60d49",
       borderColor: "#312e74",
       borderWidth: 5,
@@ -114,13 +114,13 @@ export const logoStyles = StyleSheet.create({
     },
   
     boxBottom: {
-      flex: 0.282,
+      flex: 0.26,
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'flex-start',
-      backgroundColor: 'rgba(255,255,255,0.70)',
+      backgroundColor: 'rgba(255,255,255,0.55)',
       borderRadius: 45,
-      width: "87%", 
+      width: "86%", 
       marginBottom: 37
     },
 
@@ -139,7 +139,8 @@ export const logoStyles = StyleSheet.create({
     federatedTextLogIn: {
       textDecorationLine: 'underline',
       fontSize: 15,
-      marginTop:10
+      marginTop:3,
+      marginBottom:3,
     },
   
     federatedInnerBox: {
@@ -154,7 +155,7 @@ export const logoStyles = StyleSheet.create({
     },
   
     federatedButton: {
-      flex: 0.4,
+      flex: 0.46,
       flexDirection: "row",
       borderColor: "#312e74",
       backgroundColor: "white",
@@ -167,7 +168,7 @@ export const logoStyles = StyleSheet.create({
     },
 
     federatedButtonMicrosoft: {
-      flex: 0.4,
+      flex: 0.46,
       flexDirection: "row",
       borderColor: "#312e74",
       backgroundColor: "white",
