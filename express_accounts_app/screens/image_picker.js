@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Image, View, TouchableOpacity, Dimensions, ScrollView, Text, TextInput } from 'react-native';
+import { Button, Image, View, TouchableOpacity, Dimensions, ScrollView, Text, Modal } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import MlkitOcr from 'react-native-mlkit-ocr';
-import { images } from '../styles'
+import { images, receipt } from '../styles'
+import { Camera } from "expo-camera";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export const pickImage = async () => {
   // No permissions request is necessary for launching the image library
@@ -24,11 +26,15 @@ export default function ImagePicking({ route, navigation }) {
   const [resultFromUri, setResult] = useState(null);
   const [image, setImage] = useState(null);
 
+  const [modalVisible, setModalVisible] = useState(false);
+
 
   const [detectedCurrency, setDetectedCurrency] = useState("£");
   const [detectedAmount, setDetectedAmount] = useState("101.13");
   const [detectedDate, setDetectedDate] = useState("20/07/2023");
   const [detectedCategory, setDetectedCategory] = useState("Accomodation");
+
+  const [status, requestPermission] = Camera.useCameraPermissions();
 
   const recognizeTextFromImage = async (result) => {
 
@@ -65,24 +71,105 @@ export default function ImagePicking({ route, navigation }) {
   }
 
 
+
   const selectImage = async () => {
     const pickerResult = await pickImage()
+    setModalVisible(!modalVisible);
     if (pickerResult) {
       // console.log(pickerResult.assets[0].uri)
-      // await recognizeTextFromImage(pickerResult)
+      await recognizeTextFromImage(pickerResult)
       setImage(pickerResult.assets[0]);
     }
   }
 
+  const launch_camera = async () => {
+
+    if (!status?.granted) {
+
+      await requestPermission(status, requestPermission)
+
+    }
+    
+    setModalVisible(!modalVisible);
+    navigation.navigate('Camera')
+}
+
   return (
+
+    
+
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', marginTop: 10 }}>
 
-      <TouchableOpacity onPress={selectImage} style={images.imageButton}>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          // Alert.alert('Modal has been closed.');
+          setModalVisible(!modalVisible);
+        }}>
+          <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 22, backgroundColor: '#706464af'}}>
+            <View style={{margin: 20,
+              backgroundColor: 'white',
+              borderRadius: 20,
+              padding: 35,
+              alignItems: 'center',
+              shadowColor: '#000',
+              shadowOffset: {
+                width: 0,
+                height: 2}}}>
+              <Text >How would you like to add your receipt?</Text>
+
+              <View style={receipt.buttonsBottom}>
+
+                <TouchableOpacity onPress={() => launch_camera()}
+                  style={{borderColor: "#312e74", justifyContent: "center", borderRadius: 5, borderWidth: 2, backgroundColor: "#a60d49", width: "35%", marginVertical: 15, padding: 5}}>
+                  <Text style={{textAlign: "center", color: "white", fontSize: 20}}>Camera</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity 
+                  onPress={() => selectImage()}
+                  style={{borderColor: "#312e74", justifyContent: "center", borderRadius: 5, borderWidth: 2, backgroundColor: "#a60d49", width: "35%", marginVertical: 15, padding: 5}}>
+                  <Text style={{textAlign: "center", color: "white", fontSize: 20}}>Select Photo</Text>
+                </TouchableOpacity>
+
+              </View>
+
+              <TouchableOpacity
+                style={{borderWidth: 1, padding: 2, borderRadius: 2}}
+                onPress={() => setModalVisible(!modalVisible)}>
+                <Text>Cancel</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+      </Modal>
+
+      <TouchableOpacity onPress={() => setModalVisible(!modalVisible)} style={images.imageButton}>
         <Text style={images.imageButtonText}>Change Image</Text>
       </TouchableOpacity>
 
       {/* {resultFromUri ? */}
       <View style={images.detectBox}> 
+
+        <View>
+
+          <TouchableOpacity>
+            <Text style={images.deleteX} >x</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Text style={images.deleteX} >x</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Text style={images.deleteX} >x</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Text style={images.deleteX} >x</Text>
+          </TouchableOpacity>
+
+        </View>
       
         <View> 
 
@@ -106,7 +193,11 @@ export default function ImagePicking({ route, navigation }) {
       </View> 
       {/* : <Text> Nothing detected! </Text> } */}
 
-      <ScrollView>
+      <TouchableOpacity onPress={() => setModalVisible(!modalVisible)} style={images.saveButton}>
+        <Text style={images.imageButtonText}>Save</Text>
+      </TouchableOpacity>
+
+      <ScrollView style={images.imageScroll}>
         <View style={{height: Dimensions.get('window').height, width: Dimensions.get('window').width}}>        
           {image && <Image source={{ uri: image.uri }} style={{ flex: 0.75, width: null, height: null, resizeMode: "contain" }} />}
           {resultFromUri?.map((block) => {

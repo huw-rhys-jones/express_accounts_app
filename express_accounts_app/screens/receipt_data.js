@@ -8,14 +8,18 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { pickImage } from '../screens/image_picker'
 // import { launch_camera } from './camera';
 import { Camera } from "expo-camera";
+
+      {/* TODO I think this can be removed */}
 import Picture_Taker from '../screens/camera'
 
-export default function ReceiptData({ navigation }) {
+export default function ReceiptData({navigation }) {
 
   const [date, setDate] = useState(new Date())
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [status, requestPermission] = Camera.useCameraPermissions();
+
+   {/* TODO I think this can be removed */}
   const [showCamera, setShowCamera] = useState(false)
 
   const showDatePicker = () => {
@@ -57,6 +61,7 @@ export default function ReceiptData({ navigation }) {
     
     <View style={receipt.container}>
 
+      {/* TODO I think this can be removed */}
       {showCamera ? (Picture_Taker()): null}
 
       <Modal

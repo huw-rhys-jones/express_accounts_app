@@ -1,16 +1,21 @@
 // TODO -----------
 
+// Firebase register
 // Firebase login
 // Federated login
 
-//  extract above image from detected text
-// aforementioned button should launch camera/picker seect modal
+// extract values from detected text
+
+// when returning, popup to accept overwrite of values extracted from image text
 
 // Convert sizes to flex
 
 // DONE -----------
 // On image tab, currency/amount/date/category boxes
 // replace button in image tab with touchable opactity 
+// aforementioned button should launch camera/picker seect modal
+// save button on image_page
+// Reject buttons next to currency/amount/date/category
 
 import 'react-native-gesture-handler';
 import React from 'react';
@@ -28,7 +33,7 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="picking">
+      <Stack.Navigator initialRouteName="ReceiptData">
         <Stack.Screen options={{ headerShown: false }} name="Front" component={Front} />
         <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
         <Stack.Screen options={{ headerShown: false }} name="NewUser" component={NewUser} />

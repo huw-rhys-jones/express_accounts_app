@@ -358,11 +358,21 @@ export const logoStyles = StyleSheet.create({
                  padding: 5,
                  borderRadius: 5
     },
+
     imageButtonText: {
                  color: "white",
                  fontSize: 25
     },
-    
+
+    saveButton: {
+      // flex: 2,
+       backgroundColor: "#369C31", 
+       marginTop: 12,
+       margin: 5,
+       padding: 5,
+       borderRadius: 5
+    },
+
     detectBox: {
                  flexDirection: "row",
                  marginVertical: 5,
@@ -373,8 +383,27 @@ export const logoStyles = StyleSheet.create({
 
     detectText: {
                  fontSize: 15,
-                 marginTop: 3
+                 marginTop: 3,
+                 borderWidth: 1,
+                 padding: 3
     },
+
+    deleteX: {
+              fontSize: 20,
+              marginTop: 3,
+              // padding: 3,
+              paddingHorizontal: 5,
+              color: "red",
+              borderWidth: 1,
+              borderColor: "white"
+              // textAlign: "center"
+    },
+
+    imageScroll: {
+
+      borderTopWidth: 1
+
+    }
 
 
   
