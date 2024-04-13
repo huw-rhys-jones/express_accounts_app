@@ -12,7 +12,7 @@ export default function Front({ navigation }) {
         <Image source={require('../assets/images/logo.png')} style={logoStyles.logo}/>                                            
         
         {/* The log in message */}
-        <View style={logoStyles.signInMessage}>
+        <View>
 
           <Text style={boxStyle.textSignIn}>Sign in to continue</Text>
 

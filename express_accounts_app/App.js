@@ -33,7 +33,7 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="ReceiptData">
+      <Stack.Navigator initialRouteName="Front">
         <Stack.Screen options={{ headerShown: false }} name="Front" component={Front} />
         <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
         <Stack.Screen options={{ headerShown: false }} name="NewUser" component={NewUser} />

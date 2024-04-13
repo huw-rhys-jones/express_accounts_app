@@ -10,7 +10,7 @@ export default function NewUser({ navigation }) {
       <ImageBackground source={require('../assets/images/office_space.png')} style={logoStyles.backgroundImage} blurRadius={5}>
 
         {/* The Logo at the top of the page */}
-        <Image source={require('../assets/images/logo.png')} style={logoStyles.logo}/>
+        <Image source={require('../assets/images/logo.png')} style={logoStyles.logoCreate}/>
 
         {/* The log in message */}
         <View style={logoStyles.signInMessage}>
@@ -51,6 +51,10 @@ export default function NewUser({ navigation }) {
             </View>
 
         </View>
+
+        <TouchableOpacity onPress={() => navigation.navigate('ReceiptData')} style={boxStyle.buttonLogIn2}>
+            <Text style={boxStyle.textButton}>Create Account</Text>  
+        </TouchableOpacity>
 
       </ImageBackground>
 

@@ -10,12 +10,12 @@ export default function Login({ navigation }) {
       <ImageBackground source={require('../assets/images/office_space.png')} style={logoStyles.backgroundImage} blurRadius={5}>
 
         {/* The Logo at the top of the page */}
-        <Image source={require('../assets/images/logo.png')} style={logoStyles.logo}/>
+        <Image source={require('../assets/images/logo.png')} style={logoStyles.logoLogin}/>
 
         {/* The log in message */}
-        <View style={logoStyles.signInMessage}>
+        <View>
 
-          <Text style={boxStyle.create_account}>Sign in to continue</Text>
+          <Text style={boxStyle.textSignIn}>Sign in to continue</Text>
 {/* 
           <View style={logoStyles.alreadyRegistered}>
 
@@ -42,9 +42,9 @@ export default function Login({ navigation }) {
 
         </View>
 
-        <TouchableOpacity onPress={() => navigation.navigate('ReceiptData')} style={boxStyle.buttonLogIn}>
+        <TouchableOpacity onPress={() => navigation.navigate('ReceiptData')} style={boxStyle.buttonLogIn2}>
             <Text style={boxStyle.textButton}>Log in</Text>  
-          </TouchableOpacity>
+        </TouchableOpacity>
 
       </ImageBackground>
 

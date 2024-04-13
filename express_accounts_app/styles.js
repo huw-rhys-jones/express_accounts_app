@@ -33,9 +33,22 @@ export const logoStyles = StyleSheet.create({
       borderRadius: 100,
       flex:0.19,
       //flexDirection:"row"
+    },
 
-      
+    logoLogin: {
+      marginTop: 60,
+     // width: "100%", 
+      borderRadius: 100,
+      flex:0.25,
+      //flexDirection:"row"
+    },
 
+    logoCreate: {
+      marginTop: 60,
+     // width: "100%", 
+      borderRadius: 100,
+      flex:0.4,
+      //flexDirection:"row"
     },
 
     here: {
@@ -46,9 +59,9 @@ export const logoStyles = StyleSheet.create({
     signInMessage: {
       alignItems: 'center',
       justifyContent: 'center',
-      // backgroundColor: '#8F093E',
+      backgroundColor: 'rgba(255,255,255,0.78)',
       borderRadius: 100,
-      width: "90%",
+      width: "80%",
      
       
 
@@ -79,6 +92,18 @@ export const logoStyles = StyleSheet.create({
   
     buttonLogIn: {
       flex: 0.33,
+      backgroundColor: "#312e74",
+      borderColor: "#a60d49",
+      borderWidth: 5,
+      width: "82%",
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: 37,
+      marginBottom:25
+    },
+
+    buttonLogIn2: {
+      flex: 0.15,
       backgroundColor: "#312e74",
       borderColor: "#a60d49",
       borderWidth: 5,
