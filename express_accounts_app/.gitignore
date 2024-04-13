@@ -65,3 +65,5 @@ web-build/
 
 android
 test
+
+utils/firebase.js

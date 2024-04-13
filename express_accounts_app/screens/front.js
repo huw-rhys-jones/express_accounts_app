@@ -2,8 +2,19 @@ import React from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, ScrollView } from 'react-native';
 import logo from '../assets/images/logo.png';
 import { logoStyles, boxStyle } from '../styles'
+import { app, auth } from '../utils/firebase';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function Front({ navigation }) {
+
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      console.log(user)
+    } else {
+      console.log("no user")
+    }
+  });
+
   return (
     <View style={logoStyles.container}>
       <ImageBackground source={require('../assets/images/office_space.png')} style={logoStyles.backgroundImage} blurRadius={5}>
