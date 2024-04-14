@@ -3,12 +3,14 @@
 // Firebase register
 // Firebase login
 // Federated login
-
+// When create account is pressed, provide link to privacy policy and only allow continue if accept
 // extract values from detected text
 
 // when returning, popup to accept overwrite of values extracted from image text
 
 // Convert sizes to flex
+
+
 
 // DONE -----------
 // On image tab, currency/amount/date/category boxes

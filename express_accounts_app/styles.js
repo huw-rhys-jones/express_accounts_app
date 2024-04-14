@@ -44,10 +44,10 @@ export const logoStyles = StyleSheet.create({
     },
 
     logoCreate: {
-      marginTop: 60,
+      marginTop: 10,
      // width: "100%", 
       borderRadius: 100,
-      flex:0.4,
+      flex:0.45,
       //flexDirection:"row"
     },
 
@@ -62,10 +62,9 @@ export const logoStyles = StyleSheet.create({
       backgroundColor: 'rgba(255,255,255,0.78)',
       borderRadius: 100,
       width: "80%",
-     
-      
+    },
 
-    }
+
   
   
   });
@@ -103,7 +102,7 @@ export const logoStyles = StyleSheet.create({
     },
 
     buttonLogIn2: {
-      flex: 0.15,
+      flex: 0.2,
       backgroundColor: "#312e74",
       borderColor: "#a60d49",
       borderWidth: 5,
@@ -157,7 +156,7 @@ export const logoStyles = StyleSheet.create({
         backgroundColor: 'rgba(255,255,255,0.78)',
         borderRadius: 37,
         width: "90%", 
-        marginBottom: 20,
+        marginBottom: 10,
         padding: 20
       },
   
@@ -229,7 +228,7 @@ export const logoStyles = StyleSheet.create({
     signUpTextAttr: {
         // textDecorationLine: 'underline',
         fontSize: 17,
-        marginBottom:2
+        marginBottom:3
         
       },
     
@@ -237,6 +236,7 @@ export const logoStyles = StyleSheet.create({
         backgroundColor: "#c3c9c6",
         fontSize: 17,
         borderRadius: 5,
+        borderWidth: 0.25,
         padding: 3,
         paddingVertical: 5,
         color: "black"
@@ -244,6 +244,26 @@ export const logoStyles = StyleSheet.create({
 
     signUpItems: {
         marginBottom: 10
+    },
+
+    passwordMessage: {
+      // marginHorizontal: 20,
+      // alignSelf: 'center',
+      color: "#312e74",
+      fontStyle: 'italic'
+
+    },
+    passwordCorrect: {
+      // marginHorizontal: 20,
+      // alignSelf: 'center',
+      color: 'green',
+      fontStyle: 'italic'
+
+    },
+
+    passwordBox: {
+      marginBottom: 5
+
     }
 
 

@@ -15,6 +15,8 @@ export default function Front({ navigation }) {
     }
   });
 
+  // auth.signOut()
+
   return (
     <View style={logoStyles.container}>
       <ImageBackground source={require('../assets/images/office_space.png')} style={logoStyles.backgroundImage} blurRadius={5}>
