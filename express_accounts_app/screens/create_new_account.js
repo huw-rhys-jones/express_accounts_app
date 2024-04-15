@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity, TextI
 import logo from '../assets/images/logo.png';
 import { logoStyles, boxStyle } from '../styles'
 // import { TextInput } from 'react-native-gesture-handler';
-import { app } from '../utils/firebase';
+// import { app } from '../utils/firebase';
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import {emailVerifier, passwordVerifier, nameVerifier} from '../utils/validators'
 
