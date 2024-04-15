@@ -8,7 +8,7 @@ export const logoStyles = StyleSheet.create({
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'space-around',
-      backgroundColor: "green"
+      backgroundColor: "#8F093E"
     },
   
     backgroundImage: {
@@ -29,22 +29,42 @@ export const logoStyles = StyleSheet.create({
   
     logo: {
       marginTop: 60,
-      width: "90%", 
-      borderRadius: 100
+     // width: "100%", 
+      borderRadius: 100,
+      flex:0.19,
+      //flexDirection:"row"
+    },
+
+    logoLogin: {
+      marginTop: 60,
+     // width: "100%", 
+      borderRadius: 100,
+      flex:0.25,
+      //flexDirection:"row"
+    },
+
+    logoCreate: {
+      marginTop: 10,
+     // width: "100%", 
+      borderRadius: 100,
+      flex:0.45,
+      //flexDirection:"row"
     },
 
     here: {
-        color: "#a60d49",
+        color: "#8F093E",
         fontWeight: 'bold'
       },
   
     signInMessage: {
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: 'white',
+      backgroundColor: 'rgba(255,255,255,0.78)',
       borderRadius: 100,
-      width: "90%"
-    }
+      width: "80%",
+    },
+
+
   
   
   });
@@ -52,37 +72,51 @@ export const logoStyles = StyleSheet.create({
   export const boxStyle = StyleSheet.create({
   
     box: {
-      flex: 0.35,
+      flex: 0.32,
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: 'white',
-      borderRadius: 30,
-      width: "90%", 
-      justifyContent: 'space-around',
+      backgroundColor: 'rgba(255,255,255,0.55)',
+      borderRadius: 45,
+      width: "86%", 
+      // justifyContent: 'space-around',
+      
     },
   
     textSignIn: {
-      color: "#312e74",
-      fontSize: 20.5,
-      padding: 10
+      color: "white",
+      fontSize: 16,
+      padding: 1
     },
   
     buttonLogIn: {
-      flex: 0.3,
+      flex: 0.33,
       backgroundColor: "#312e74",
       borderColor: "#a60d49",
       borderWidth: 5,
-      width: "80%",
+      width: "82%",
       alignItems: 'center',
       justifyContent: 'center',
-      borderRadius: 10,
+      borderRadius: 37,
+      marginBottom:25
+    },
+
+    buttonLogIn2: {
+      flex: 0.2,
+      backgroundColor: "#312e74",
+      borderColor: "#a60d49",
+      borderWidth: 5,
+      width: "82%",
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: 37,
+      marginBottom:25
     },
 
     create_account: {
         color: "#312e74",
         fontSize: 25,
-        padding: 10,
+        padding: 1,
         fontWeight: 'bold'
     
       },
@@ -93,25 +127,25 @@ export const logoStyles = StyleSheet.create({
     },
   
     buttonSignUp: {
-      flex: 0.3,
+      flex: 0.33,
       backgroundColor: "#a60d49",
       borderColor: "#312e74",
       borderWidth: 5,
-      width: "80%",
+      width: "82%",
       alignItems: 'center',
       justifyContent: 'center',
-      borderRadius: 10,
+      borderRadius: 37,
     },
   
     boxBottom: {
-      flex: 0.35,
+      flex: 0.26,
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'flex-start',
-      backgroundColor: 'white',
-      borderRadius: 30,
-      width: "90%", 
-      marginBottom: 20
+      backgroundColor: 'rgba(255,255,255,0.55)',
+      borderRadius: 45,
+      width: "86%", 
+      marginBottom: 37
     },
 
     boxEnterAttrs: {
@@ -119,46 +153,73 @@ export const logoStyles = StyleSheet.create({
         flexDirection: "column",
         // alignItems: 'center',
         justifyContent: 'flex-start',
-        backgroundColor: 'white',
-        borderRadius: 30,
+        backgroundColor: 'rgba(255,255,255,0.78)',
+        borderRadius: 37,
         width: "90%", 
-        marginBottom: 20,
+        marginBottom: 10,
         padding: 20
       },
   
     federatedTextLogIn: {
       textDecorationLine: 'underline',
-      fontSize: 15
+      fontSize: 15,
+      marginTop:3,
+      marginBottom:3,
     },
   
     federatedInnerBox: {
-      flex: 1, 
+      flex: 10, 
       flexDirection: "vertical", 
       justifyContent: 'space-around', 
       width: "100%", 
       alignItems: "center"
+      
+    
+
     },
   
     federatedButton: {
-      flex: 0.35,
+      flex: 0.46,
       flexDirection: "row",
       borderColor: "#312e74",
+      backgroundColor: "white",
       borderWidth: 5,
       width: "80%",
       alignItems: 'center',
       justifyContent: 'flex-start',
-      borderRadius: 10,
+      borderRadius: 37,
+      marginBottom:12
+    },
+
+    federatedButtonMicrosoft: {
+      flex: 0.46,
+      flexDirection: "row",
+      borderColor: "#312e74",
+      backgroundColor: "white",
+      borderWidth: 5,
+      width: "80%",
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      borderRadius: 37,
+      marginBottom:12,
     },
   
     federatedText: {
-      marginLeft: "22%",
+      marginLeft: "18%",
+      color: "black",
+      fontSize: 25
+  
+    },
+
+    federatedTextMicrosoft: {
+      marginLeft: "13.5%",
       color: "black",
       fontSize: 25
   
     },
   
     iconFederated: {
-      marginLeft: 10,
+      marginLeft: 18,
       height: 30,
       width: 30,
       // flex: 1
@@ -167,13 +228,15 @@ export const logoStyles = StyleSheet.create({
     signUpTextAttr: {
         // textDecorationLine: 'underline',
         fontSize: 17,
-        marginBottom:5
+        marginBottom:3
+        
       },
     
     signUpInputBox: {
         backgroundColor: "#c3c9c6",
         fontSize: 17,
         borderRadius: 5,
+        borderWidth: 0.25,
         padding: 3,
         paddingVertical: 5,
         color: "black"
@@ -181,6 +244,26 @@ export const logoStyles = StyleSheet.create({
 
     signUpItems: {
         marginBottom: 10
+    },
+
+    passwordMessage: {
+      // marginHorizontal: 20,
+      // alignSelf: 'center',
+      color: "#312e74",
+      fontStyle: 'italic'
+
+    },
+    passwordCorrect: {
+      // marginHorizontal: 20,
+      // alignSelf: 'center',
+      color: 'green',
+      fontStyle: 'italic'
+
+    },
+
+    passwordBox: {
+      marginBottom: 5
+
     }
 
 
@@ -259,6 +342,76 @@ export const logoStyles = StyleSheet.create({
       borderTopWidth: 2
     },
 
+    currencySelector: {
+      backgroundColor: "black", 
+      width: 50, 
+      height: 40, 
+      borderRadius: 5
+    },
+
+    amountInput: {
+      backgroundColor: "#b3bac0", 
+      flex: 0.75, 
+      marginLeft: 5, 
+      borderRadius: 5, 
+      padding: 5
+    },
+
+    dateOuter: {
+      backgroundColor: "#b3bac0", 
+      flex: 0.75, 
+      marginLeft: 5, 
+      borderRadius: 5, 
+      padding: 5, 
+      height: 40
+    },
+
+    dateInner: {
+      backgroundColor: "#b3bac0", 
+      flex: 0.75, 
+      marginLeft: 5, 
+      borderRadius: 5, 
+      // padding: 5, 
+      textAlign: "center", 
+      fontSize: 20
+    },
+
+    categoryDropdown: {
+      backgroundColor: "black", 
+      width: 200, 
+      height: 40, 
+      borderRadius: 5
+    },
+
+    categoryText: {
+      color: "white"
+    },
+
+    receiptImageBox: {
+      flex: 0.8, 
+      width: "25%", 
+      backgroundColor: "#d9d9d9", 
+      margin: 10, 
+      justifyContent: "center", 
+      alignItems: "center"
+    },
+
+    receiptImageAdd: {
+      backgroundColor: "grey", 
+      padding: 5, 
+      borderRadius: 20, 
+      height: 30, 
+      width: 30, 
+      justifyContent: "center", 
+      alignItems: "center" 
+    },
+
+    receiptImageIcon: {
+      name: "plus",
+      size: 15,
+      color: "white"
+    },
+
     button: {
       borderColor: "#312e74",
       borderRadius: 5,
@@ -275,7 +428,66 @@ export const logoStyles = StyleSheet.create({
       fontSize: 25
     }
 
+  })
 
 
+  export const images = StyleSheet.create({
 
+    imageButton: {
+                // flex: 2,
+                 backgroundColor: "#28BDC0", 
+                 marginTop: 12,
+                 margin: 5,
+                 padding: 5,
+                 borderRadius: 5
+    },
+
+    imageButtonText: {
+                 color: "white",
+                 fontSize: 25
+    },
+
+    saveButton: {
+      // flex: 2,
+       backgroundColor: "#369C31", 
+       marginTop: 12,
+       margin: 5,
+       padding: 5,
+       borderRadius: 5
+    },
+
+    detectBox: {
+                 flexDirection: "row",
+                 marginVertical: 5,
+                 borderWidth: 1,
+                 borderColor: "black",
+                 padding: 5
+    },
+
+    detectText: {
+                 fontSize: 15,
+                 marginTop: 3,
+                 borderWidth: 1,
+                 padding: 3
+    },
+
+    deleteX: {
+              fontSize: 20,
+              marginTop: 3,
+              // padding: 3,
+              paddingHorizontal: 5,
+              color: "red",
+              borderWidth: 1,
+              borderColor: "white"
+              // textAlign: "center"
+    },
+
+    imageScroll: {
+
+      borderTopWidth: 1
+
+    }
+
+
+  
   })

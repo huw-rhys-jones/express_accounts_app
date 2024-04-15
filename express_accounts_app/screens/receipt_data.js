@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
-import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput } from 'react-native';
+import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, Modal } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown'
 import { receipt } from '../styles' 
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { currencies, expense_categories } from '../constants/arrays'
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { pickImage } from '../screens/image_picker'
+// import { launch_camera } from './camera';
+import { Camera } from "expo-camera";
 
-export default function ReceiptData({ navigation }) {
+      {/* TODO I think this can be removed */}
+import Picture_Taker from '../screens/camera'
+
+export default function ReceiptData({navigation }) {
 
   const [date, setDate] = useState(new Date())
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [status, requestPermission] = Camera.useCameraPermissions();
+
+   {/* TODO I think this can be removed */}
+  const [showCamera, setShowCamera] = useState(false)
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
@@ -24,8 +35,78 @@ export default function ReceiptData({ navigation }) {
     hideDatePicker();
   };
 
+  const imagePicker = async () => {
+
+    setModalVisible(false)
+    const image = await pickImage()
+    if (image) {
+      navigation.navigate('picking', image)
+    }
+  }
+
+  const launch_camera = async () => {
+
+    if (!status?.granted) {
+
+      await requestPermission(status, requestPermission)
+
+    }
+    
+    setModalVisible(!modalVisible);
+    navigation.navigate('Camera')
+}
+
   return (
+    
+    
     <View style={receipt.container}>
+
+      {/* TODO I think this can be removed */}
+      {showCamera ? (Picture_Taker()): null}
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          // Alert.alert('Modal has been closed.');
+          setModalVisible(!modalVisible);
+        }}>
+          <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 22, backgroundColor: '#706464af'}}>
+            <View style={{margin: 20,
+              backgroundColor: 'white',
+              borderRadius: 20,
+              padding: 35,
+              alignItems: 'center',
+              shadowColor: '#000',
+              shadowOffset: {
+                width: 0,
+                height: 2}}}>
+              <Text >How would you like to add your receipt?</Text>
+
+              <View style={receipt.buttonsBottom}>
+
+                <TouchableOpacity onPress={() => launch_camera()}
+                  style={{borderColor: "#312e74", justifyContent: "center", borderRadius: 5, borderWidth: 2, backgroundColor: "#a60d49", width: "35%", marginVertical: 15, padding: 5}}>
+                  <Text style={{textAlign: "center", color: "white", fontSize: 20}}>Camera</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity 
+                  onPress={() => imagePicker()}
+                  style={{borderColor: "#312e74", justifyContent: "center", borderRadius: 5, borderWidth: 2, backgroundColor: "#a60d49", width: "35%", marginVertical: 15, padding: 5}}>
+                  <Text style={{textAlign: "center", color: "white", fontSize: 20}}>Select Photo</Text>
+                </TouchableOpacity>
+
+              </View>
+
+              <TouchableOpacity
+                style={{borderWidth: 1, padding: 2, borderRadius: 2}}
+                onPress={() => setModalVisible(!modalVisible)}>
+                <Text>Cancel</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
 
       {/* The title bar */}
       <View style={receipt.containerTitle}>
@@ -47,10 +128,10 @@ export default function ReceiptData({ navigation }) {
 	            onSelect={(selectedItem, index) => {
 		          console.log(selectedItem, index)}}
               defaultValueByIndex={0}
-              buttonStyle={{backgroundColor: "black", width: 50, height: 40, borderRadius: 5}}
+              buttonStyle={receipt.currencySelector}
               buttonTextStyle={{color: "white"}}/>
 
-            <TextInput placeholder={"Amount on Receipt"} keyboardType='numeric' style={{backgroundColor: "#b3bac0", flex: 0.75, marginLeft: 5, borderRadius: 5, padding: 5}}/>
+            <TextInput placeholder={"Amount on Receipt"} keyboardType='numeric' style={receipt.amountInput}/>
 
           </View>
 
@@ -64,8 +145,8 @@ export default function ReceiptData({ navigation }) {
           
           <View style={receipt.moneyRow}>
 
-            <TouchableOpacity onPress={showDatePicker} style={{backgroundColor: "#b3bac0", flex: 0.75, marginLeft: 5, borderRadius: 5, padding: 5, height: 40}}> 
-                <Text style={{backgroundColor: "#b3bac0", flex: 0.75, marginLeft: 5, borderRadius: 5, padding: 5, textAlign: "center", fontSize: 20}}>{date.getDate()}/{date.getMonth()+1}/{date.getFullYear()}</Text>   
+            <TouchableOpacity onPress={showDatePicker} style={receipt.dateOuter}> 
+                <Text style={receipt.dateInner}>{date.getDate()}/{date.getMonth()+1}/{date.getFullYear()}</Text>   
 
                 <DateTimePickerModal
                   isVisible={isDatePickerVisible}
@@ -94,8 +175,8 @@ export default function ReceiptData({ navigation }) {
 	            onSelect={(selectedItem, index) => {
 		          console.log(selectedItem, index)}}
               defaultValueByIndex={0}
-              buttonStyle={{backgroundColor: "black", width: 200, height: 40, borderRadius: 5}}
-              buttonTextStyle={{color: "white"}}/>
+              buttonStyle={receipt.categoryDropdown}
+              buttonTextStyle={receipt.categoryText}/>
 
           </View>
 
@@ -106,13 +187,14 @@ export default function ReceiptData({ navigation }) {
       {/* Pictures of the receipt(s) */}
       <View style={receipt.receiptPanel}>
 
-        <TouchableOpacity style={{flex: 0.8, width: "25%", backgroundColor: "#d9d9d9", margin: 10, justifyContent: "center", alignItems: "center"}}>
+        {/* Add receipt button */}
+        <TouchableOpacity onPress={() => setModalVisible(true)} style={receipt.receiptImageBox}>
           
-          <View style={{backgroundColor: "grey", padding: 5, borderRadius: 20, height: 30, width: 30, justifyContent: "center", alignItems: "center" }}>
+          <View style={receipt.receiptImageAdd}>
             <Icon 
-              name="plus" 
-              size={15} 
-              color={"white"} 
+              name={receipt.receiptImageIcon.name}
+              size={receipt.receiptImageIcon.size} 
+              color={receipt.receiptImageIcon.color} 
               // style={styles.topBarButtonIcon.style} 
             />
           </View>  
@@ -134,7 +216,7 @@ export default function ReceiptData({ navigation }) {
 
       </View>
 
-
+              
 
     </View>
   );

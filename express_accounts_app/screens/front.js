@@ -2,17 +2,30 @@ import React from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, ScrollView } from 'react-native';
 import logo from '../assets/images/logo.png';
 import { logoStyles, boxStyle } from '../styles'
+import { app, auth } from '../utils/firebase';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function Front({ navigation }) {
+
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      console.log(user)
+    } else {
+      console.log("no user")
+    }
+  });
+
+  // auth.signOut()
+
   return (
     <View style={logoStyles.container}>
-      {/* <ImageBackground source={require('./assets/images/office_space.png')} style={logoStyles.backgroundImage} blurRadius={5}> */}
+      <ImageBackground source={require('../assets/images/office_space.png')} style={logoStyles.backgroundImage} blurRadius={5}>
 
         {/* The Logo at the top of the page */}
-        <Image source={require('../assets/images/logo.png')} style={logoStyles.logo}/>
+        <Image source={require('../assets/images/logo.png')} style={logoStyles.logo}/>                                            
         
         {/* The log in message */}
-        <View style={logoStyles.signInMessage}>
+        <View>
 
           <Text style={boxStyle.textSignIn}>Sign in to continue</Text>
 
@@ -45,10 +58,10 @@ export default function Front({ navigation }) {
 
           </TouchableOpacity>
 
-          <TouchableOpacity style={boxStyle.federatedButton}>
+          <TouchableOpacity style={boxStyle.federatedButtonMicrosoft}>
             
             <Image source={require('../assets/images/Microsoft_logo.svg.png')} style={boxStyle.iconFederated} />           
-            <Text style={boxStyle.federatedText}>Microsoft</Text>  
+            <Text style={boxStyle.federatedTextMicrosoft}>Microsoft</Text>  
 
           </TouchableOpacity>
           </View>
@@ -56,7 +69,7 @@ export default function Front({ navigation }) {
 
 
 
-      {/* </ImageBackground>  */}
+      </ImageBackground> 
       
     </View>
   );

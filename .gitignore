@@ -131,3 +131,5 @@ dist
 express_accounts_app/yarn.lock
 
 android
+
+test
