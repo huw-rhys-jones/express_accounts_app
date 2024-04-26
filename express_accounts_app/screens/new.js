@@ -50,4 +50,5 @@ export default function New({ navigation }) {
 
     </View>
   );
+  // This is where the code which defines the app starts
 }
