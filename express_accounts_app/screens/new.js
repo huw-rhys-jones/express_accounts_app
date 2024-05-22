@@ -5,7 +5,7 @@ import { logoStyles, boxStyle } from '../styles'
 // import { TextInput } from 'react-native-gesture-handler';
 
 export default function New({ navigation }) {
-  return (
+  return ( //Code where app starts
     <View style={logoStyles.container}>
       <ImageBackground source={require('../assets/images/office_space.png')} style={logoStyles.backgroundImage} blurRadius={5}>
 
@@ -41,7 +41,7 @@ export default function New({ navigation }) {
           </View>
 
         </View>
-
+          //log in button
         <TouchableOpacity onPress={() => navigation.navigate('ReceiptData')} style={boxStyle.buttonLogIn2}>
             <Text style={boxStyle.textButton}>Log in</Text>  
         </TouchableOpacity>
