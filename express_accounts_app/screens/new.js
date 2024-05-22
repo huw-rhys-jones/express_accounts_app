@@ -41,7 +41,8 @@ export default function New({ navigation }) {
           </View>
 
         </View>
-          //log in button
+          
+    {/*log in button*/}
         <TouchableOpacity onPress={() => navigation.navigate('ReceiptData')} style={boxStyle.buttonLogIn2}>
             <Text style={boxStyle.textButton}>Log in</Text>  
         </TouchableOpacity>
