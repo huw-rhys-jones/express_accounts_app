@@ -3,12 +3,19 @@ import { StyleSheet } from 'react-native';
 
 export const logoStyles = StyleSheet.create({
   
+  scrollContainer: {
+    flexGrow: 1,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+  },
+
     container: {
       flex: 1,
       flexDirection: "column",
       alignItems: 'center',
       justifyContent: 'space-around',
-      backgroundColor: "#8F093E"
+      backgroundColor: "#8F093E",
+      height: "100%"
     },
   
     backgroundImage: {
@@ -29,25 +36,26 @@ export const logoStyles = StyleSheet.create({
   
     logo: {
       marginTop: 60,
-     // width: "100%", 
+     width: "95%", 
       borderRadius: 100,
-      flex:0.19,
+      flex:0.02,
       //flexDirection:"row"
     },
 
     logoLogin: {
       marginTop: 60,
-     // width: "100%", 
+     width: "95%", 
       borderRadius: 100,
-      flex:0.25,
+      // flex:0.25,
       //flexDirection:"row"
     },
 
     logoCreate: {
-      marginTop: 10,
-     // width: "100%", 
+      marginTop: 20,
+     width: 280, 
+     height: 80,
       borderRadius: 100,
-      flex:0.45,
+      // flex:0.1                          
       //flexDirection:"row"
     },
 
@@ -335,7 +343,8 @@ export const logoStyles = StyleSheet.create({
     },
 
     receiptPanel: {
-      flex: 4,
+      marginTop: 40,
+      flex: 32,
       justifyContent: "flex-start",
       width: "100%",
       borderTopColor: "black",
@@ -388,7 +397,7 @@ export const logoStyles = StyleSheet.create({
     },
 
     receiptImageBox: {
-      flex: 0.8, 
+      flex: 1, 
       width: "25%", 
       backgroundColor: "#d9d9d9", 
       margin: 10, 

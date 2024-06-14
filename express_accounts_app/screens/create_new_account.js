@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import logo from '../assets/images/logo.png';
 import { logoStyles, boxStyle } from '../styles'
 // import { TextInput } from 'react-native-gesture-handler';
@@ -110,65 +110,68 @@ export default function NewUser({ navigation }) {
 
 
   return (
-    <View style={logoStyles.container}>
-      <ImageBackground source={require('../assets/images/office_space.png')} style={logoStyles.backgroundImage} blurRadius={5}>
 
-        {/* The Logo at the top of the page */}
-        <Image source={require('../assets/images/logo.png')} style={logoStyles.logoCreate}/>
+    <ScrollView contentContainerStyle={logoStyles.scrollContainer}>
+      <View style={logoStyles.container}>
+        <ImageBackground source={require('../assets/images/office_space.png')} style={logoStyles.backgroundImage} blurRadius={5}>
 
-        {/* The log in message */}
-        <View style={logoStyles.signInMessage}>
+          {/* The Logo at the top of the page */}
+          <Image source={require('../assets/images/logo.png')} style={logoStyles.logoCreate}/>
 
-          <Text style={boxStyle.create_account}>Create New Account</Text>
+          {/* The log in message */}
+          <View style={logoStyles.signInMessage}>
 
-          <View style={logoStyles.alreadyRegistered}>
+            <Text style={boxStyle.create_account}>Create New Account</Text>
 
-            <Text>Already Registered? Log in </Text>
-            <Text style={logoStyles.here}>here</Text>
+            <View style={logoStyles.alreadyRegistered}>
+
+              <Text>Already Registered? Log in </Text>
+              <Text style={logoStyles.here}>here</Text>
+
+            </View>
+
 
           </View>
 
+          {/* Enter Values */}
+          <View style={boxStyle.boxEnterAttrs}>
 
-        </View>
+              <View style={boxStyle.signUpItems}>
+                  <Text style={boxStyle.signUpTextAttr}>Name (Company or Personal)</Text>
+                  <TextInput onChangeText={(value) => nameHandler(value) } style={boxStyle.signUpInputBox} placeholder="Your Name"/>
+              </View>
 
-        {/* Enter Values */}
-        <View style={boxStyle.boxEnterAttrs}>
+              <View style={boxStyle.signUpItems}>
+                  <Text style={boxStyle.signUpTextAttr}>Email</Text>
+                  <TextInput onChangeText={(value) => emailHandler(value) } style={boxStyle.signUpInputBox} placeholder="Your Email"/>
+              </View>
 
-            <View style={boxStyle.signUpItems}>
-                <Text style={boxStyle.signUpTextAttr}>Name (Company or Personal)</Text>
-                <TextInput onChangeText={(value) => nameHandler(value) } style={boxStyle.signUpInputBox} placeholder="Your Name"/>
-            </View>
+              <View style={boxStyle.signUpItems}>
+                  <Text style={boxStyle.signUpTextAttr}>Password</Text>
+                  <TextInput onChangeText={(value) => passwordHandler(value) } style={boxStyle.signUpInputBox} placeholder="Your Password"/>
+              </View>
 
-            <View style={boxStyle.signUpItems}>
-                <Text style={boxStyle.signUpTextAttr}>Email</Text>
-                <TextInput onChangeText={(value) => emailHandler(value) } style={boxStyle.signUpInputBox} placeholder="Your Email"/>
-            </View>
+              <View style={boxStyle.passwordBox}>
+                <Text style = {boxStyle.passwordMessage} >Password must contain:   </Text>    
+                <Text style = {password8Valid ?  boxStyle.passwordCorrect : boxStyle.passwordMessage} > {password8Valid ? '\u2713': '\u2717'} at least 8 characters</Text>
+                <Text style = {passwordUpperLowerValid ?  boxStyle.passwordCorrect : boxStyle.passwordMessage} > {passwordUpperLowerValid ? '\u2713': '\u2717'} upper and lowercase letters</Text>
+                <Text style = {passwordNumbersValid ?  boxStyle.passwordCorrect : boxStyle.passwordMessage} > {passwordNumbersValid ? '\u2713': '\u2717'} at least one each of numbers and letters</Text>
+              </View>
 
-            <View style={boxStyle.signUpItems}>
-                <Text style={boxStyle.signUpTextAttr}>Password</Text>
-                <TextInput onChangeText={(value) => passwordHandler(value) } style={boxStyle.signUpInputBox} placeholder="Your Password"/>
-            </View>
+              <View style={boxStyle.signUpItems}>
+                  <Text style={boxStyle.signUpTextAttr}>Repeat Password</Text>
+                  <TextInput style={boxStyle.signUpInputBox} placeholder="Your Password (again)"/>
+              </View>
 
-            <View style={boxStyle.passwordBox}>
-              <Text style = {boxStyle.passwordMessage} >Password must contain:   </Text>    
-              <Text style = {password8Valid ?  boxStyle.passwordCorrect : boxStyle.passwordMessage} > {password8Valid ? '\u2713': '\u2717'} at least 8 characters</Text>
-              <Text style = {passwordUpperLowerValid ?  boxStyle.passwordCorrect : boxStyle.passwordMessage} > {passwordUpperLowerValid ? '\u2713': '\u2717'} upper and lowercase letters</Text>
-              <Text style = {passwordNumbersValid ?  boxStyle.passwordCorrect : boxStyle.passwordMessage} > {passwordNumbersValid ? '\u2713': '\u2717'} at least one each of numbers and letters</Text>
-            </View>
+          </View>
 
-            <View style={boxStyle.signUpItems}>
-                <Text style={boxStyle.signUpTextAttr}>Repeat Password</Text>
-                <TextInput style={boxStyle.signUpInputBox} placeholder="Your Password (again)"/>
-            </View>
+          <TouchableOpacity disabled={true} onPress={() => navigation.navigate('ReceiptData')} style={boxStyle.buttonLogIn2}>
+              <Text style={boxStyle.textButton}>Create Account</Text>  
+          </TouchableOpacity>
 
-        </View>
+        </ImageBackground>
 
-        <TouchableOpacity disabled={true} onPress={() => navigation.navigate('ReceiptData')} style={boxStyle.buttonLogIn2}>
-            <Text style={boxStyle.textButton}>Create Account</Text>  
-        </TouchableOpacity>
-
-      </ImageBackground>
-
-    </View>
+      </View>
+    </ScrollView>
   );
 }
