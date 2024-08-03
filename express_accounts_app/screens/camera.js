@@ -1,4 +1,6 @@
-import { Camera } from "expo-camera";
+import { Camera, useCameraPermissions, CameraMode,
+  CameraType,
+  CameraView } from "expo-camera";
 import { useRef, useState } from "react";
 import {
   Button,
@@ -11,7 +13,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome6';
 
 export default function Cam({ navigation }) {
-  const [status, requestPermission] = Camera.useCameraPermissions();
+  const [status, requestPermission] = useCameraPermissions();
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [lastPhotoURI, setLastPhotoURI] = useState(null);
   const cameraRef = useRef(null);

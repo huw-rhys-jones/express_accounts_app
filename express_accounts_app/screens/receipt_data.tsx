@@ -5,19 +5,22 @@ import { receipt, logoStyles } from '../styles'
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { currencies, expense_categories } from '../constants/arrays'
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { pickImage } from '../screens/image_picker'
+import { pickImage } from './image_picker'
 // import { launch_camera } from './camera';
-import { Camera } from "expo-camera";
+import { CameraMode,
+  CameraType,
+  CameraView,
+  useCameraPermissions, } from "expo-camera";
 
       {/* TODO I think this can be removed */}
-import Picture_Taker from '../screens/camera'
+import Picture_Taker from './camera'
 
 export default function ReceiptData({navigation }) {
 
   const [date, setDate] = useState(new Date())
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
-  const [status, requestPermission] = Camera.useCameraPermissions();
+  const [status, requestPermission] = useCameraPermissions();
 
    {/* TODO I think this can be removed */}
   const [showCamera, setShowCamera] = useState(false)
@@ -48,12 +51,12 @@ export default function ReceiptData({navigation }) {
 
     if (!status?.granted) {
 
-      await requestPermission(status, requestPermission)
+      await requestPermission()
 
     }
     
     setModalVisible(!modalVisible);
-    navigation.navigate('Camera')
+    // navigation.navigate('Camera')
 }
 
   return (

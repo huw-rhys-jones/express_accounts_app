@@ -29,6 +29,7 @@ import NewUser from './screens/create_new_account';
 import ReceiptData from './screens/receipt_data'
 import ImagePicking from './screens/image_picker'
 import Cam from './screens/camera';
+import Camera from './screens/camera_test'
 
 const Stack = createStackNavigator();
 
@@ -42,6 +43,7 @@ function App() {
         <Stack.Screen options={{ headerShown: false }} name="ReceiptData" component={ReceiptData} />
         <Stack.Screen options={{ headerShown: false }} name="picking" component={ImagePicking} />
         <Stack.Screen options={{ headerShown: false }} name="Camera" component={Cam} />
+        <Stack.Screen options={{ headerShown: false }} name="CameraTest" component={Camera} />
       </Stack.Navigator>
     </NavigationContainer>
   );

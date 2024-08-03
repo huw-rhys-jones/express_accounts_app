@@ -6,9 +6,12 @@
     "@react-navigation/bottom-tabs": "^6.4.0",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/stack": "^6.3.4",
+    "@types/react": "~18.2.79",
     "expo": "^51.0.14",
     "expo-camera": "^15.0.11",
     "expo-constants": "^16.0.2",
+    "expo-image": "^1.12.12",
+    "expo-image-picker": "^15.0.5",
     "expo-modules-core": "^1.12.15",
     "firebase": "^10.11.0",
     "react": "18.2.0",
@@ -23,7 +26,8 @@
     "react-native-select-dropdown": "^3.4.0",
     "react-native-vector-icons": "^10.0.3",
     "react-native-web": "~0.19.6",
-    "react-native-webview": "13.8.6"
+    "react-native-webview": "13.8.6",
+    "typescript": "~5.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3"
