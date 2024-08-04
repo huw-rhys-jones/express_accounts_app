@@ -1,16 +1,25 @@
-import React, { useState } from 'react';
-import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, Modal, ScrollView } from 'react-native';
+import React, { useRef, useState } from 'react';
+import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, Modal, ScrollView, StyleSheet, Pressable } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown'
 import { receipt, logoStyles } from '../styles' 
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { currencies, expense_categories } from '../constants/arrays'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { pickImage } from './image_picker'
+import { AntDesign } from "@expo/vector-icons";
+import { FontAwesome6 } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 // import { launch_camera } from './camera';
-import { CameraMode,
+
+// TODO MOVE CAMERA STUFF TO RETURN TO FINAL RETURN STATEMENT
+
+
+import {
+  CameraMode,
   CameraType,
   CameraView,
-  useCameraPermissions, } from "expo-camera";
+  useCameraPermissions,
+} from "expo-camera";
 
       {/* TODO I think this can be removed */}
 import Picture_Taker from './camera'
@@ -21,6 +30,10 @@ export default function ReceiptData({navigation }) {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [status, requestPermission] = useCameraPermissions();
+  const ref = useRef<CameraView>(null);
+  const [mode, setMode] = useState<CameraMode>("picture");
+  const [facing, setFacing] = useState<CameraType>("back");
+  const [uri, setUri] = useState<string | null>(null);
 
    {/* TODO I think this can be removed */}
   const [showCamera, setShowCamera] = useState(false)
@@ -42,10 +55,14 @@ export default function ReceiptData({navigation }) {
 
     setModalVisible(false)
     const image = await pickImage()
-    if (image) {
-      navigation.navigate('picking', image)
-    }
+    // if (image) {
+    //   navigation.navigate('picking', image)
+    // }
   }
+
+  const toggleMode = () => {
+    setMode((prev) => (prev === "picture" ? "video" : "picture"));
+  };
 
   const launch_camera = async () => {
 
@@ -56,8 +73,69 @@ export default function ReceiptData({navigation }) {
     }
     
     setModalVisible(!modalVisible);
-    // navigation.navigate('Camera')
+    // const photo = await ref.current?.takePictureAsync();
+    navigation.navigate('CameraTest')
+    
 }
+
+const takePicture = async () => {
+  navigation.navigate('CameraTest')
+};
+
+const recordVideo = async () => {
+
+};
+
+const toggleFacing = () => {
+  setFacing((prev) => (prev === "back" ? "front" : "back"));
+};
+
+const renderCamera = () => {
+  return (
+    <CameraView
+      style={styles.camera}
+      ref={ref}
+      mode={mode}
+      facing={facing}
+      mute={false}
+      responsiveOrientationWhenOrientationLocked
+    >
+      <View style={styles.shutterContainer}>
+        <Pressable onPress={toggleMode}>
+          {mode === "picture" ? (
+            <AntDesign name="picture" size={32} color="white" />
+          ) : (
+            <Feather name="video" size={32} color="white" />
+          )}
+        </Pressable>
+        <Pressable onPress={mode === "picture" ? takePicture : recordVideo}>
+          {({ pressed }) => (
+            <View
+              style={[
+                styles.shutterBtn,
+                {
+                  opacity: pressed ? 0.5 : 1,
+                },
+              ]}
+            >
+              <View
+                style={[
+                  styles.shutterBtnInner,
+                  {
+                    backgroundColor: mode === "picture" ? "white" : "red",
+                  },
+                ]}
+              />
+            </View>
+          )}
+        </Pressable>
+        <Pressable onPress={toggleFacing}>
+          <FontAwesome6 name="rotate-left" size={32} color="white" />
+        </Pressable>
+      </View>
+    </CameraView>
+  );
+};
 
   return (
     
@@ -227,3 +305,41 @@ export default function ReceiptData({navigation }) {
     </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  camera: {
+    flex: 1,
+    width: "100%",
+  },
+  shutterContainer: {
+    position: "absolute",
+    bottom: 44,
+    left: 0,
+    width: "100%",
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 30,
+  },
+  shutterBtn: {
+    backgroundColor: "transparent",
+    borderWidth: 5,
+    borderColor: "white",
+    width: 85,
+    height: 85,
+    borderRadius: 45,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  shutterBtnInner: {
+    width: 70,
+    height: 70,
+    borderRadius: 50,
+  },
+});

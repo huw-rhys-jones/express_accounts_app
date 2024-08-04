@@ -23,8 +23,6 @@ export default function App() {
     return null;
   }
 
-  // so this just shows a button which when pressed activates the permission state 
-  // changer
   if (!permission.granted) {
     return (
       <View style={styles.container}>
