@@ -11,7 +11,10 @@ import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { FontAwesome6 } from "@expo/vector-icons";
 
-export default function App() {
+// TODO
+// remove the recording ability
+
+export default function App({ navigation }) {
   const [permission, requestPermission] = useCameraPermissions();
   const ref = useRef<CameraView>(null);
   const [uri, setUri] = useState<string | null>(null);
@@ -36,7 +39,8 @@ export default function App() {
 
   const takePicture = async () => {
     const photo = await ref.current?.takePictureAsync();
-    setUri(photo?.uri);
+    // setUri(photo?.uri);
+    navigation.navigate('Process', photo.uri)
   };
 
   const recordVideo = async () => {

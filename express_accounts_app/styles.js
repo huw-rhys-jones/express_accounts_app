@@ -343,6 +343,7 @@ export const logoStyles = StyleSheet.create({
     },
 
     receiptPanel: {
+      // flexDirection: "row",
       marginTop: 40,
       flex: 32,
       justifyContent: "flex-start",

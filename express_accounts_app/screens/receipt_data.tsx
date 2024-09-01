@@ -9,34 +9,28 @@ import { pickImage } from './image_picker'
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
-// import { launch_camera } from './camera';
 
-// TODO MOVE CAMERA STUFF TO RETURN TO FINAL RETURN STATEMENT
+// TODO 
+// Noticed that upon pressing the button to move to camera, it sometimes delays before moving
+//  allowing the user to press buttons
+//  The screen should be replaced with a loading placeholder during the transition
 
 
-import {
-  CameraMode,
-  CameraType,
-  CameraView,
-  useCameraPermissions,
-} from "expo-camera";
 
-      {/* TODO I think this can be removed */}
-import Picture_Taker from './camera'
-
-export default function ReceiptData({navigation }) {
+export default function ReceiptData({route, navigation }) {
 
   const [date, setDate] = useState(new Date())
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
-  const [status, requestPermission] = useCameraPermissions();
-  const ref = useRef<CameraView>(null);
-  const [mode, setMode] = useState<CameraMode>("picture");
-  const [facing, setFacing] = useState<CameraType>("back");
-  const [uri, setUri] = useState<string | null>(null);
+  const [images, setImages] = useState([])
 
-   {/* TODO I think this can be removed */}
-  const [showCamera, setShowCamera] = useState(false)
+  // check if the page has received data from another
+  if (route.params) {
+
+    console.log(route)
+
+  }
+
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
@@ -55,87 +49,18 @@ export default function ReceiptData({navigation }) {
 
     setModalVisible(false)
     const image = await pickImage()
-    // if (image) {
-    //   navigation.navigate('picking', image)
-    // }
+    // navigation.navigate('Process', image)
+    if (image) {
+      navigation.navigate('Process', image.assets[0].uri)
+    }
   }
 
-  const toggleMode = () => {
-    setMode((prev) => (prev === "picture" ? "video" : "picture"));
-  };
+  const launch_camera = () => {
+    setModalVisible(false)
+    navigation.navigate('Camera')
 
-  const launch_camera = async () => {
+  }
 
-    if (!status?.granted) {
-
-      await requestPermission()
-
-    }
-    
-    setModalVisible(!modalVisible);
-    // const photo = await ref.current?.takePictureAsync();
-    navigation.navigate('CameraTest')
-    
-}
-
-const takePicture = async () => {
-  navigation.navigate('CameraTest')
-};
-
-const recordVideo = async () => {
-
-};
-
-const toggleFacing = () => {
-  setFacing((prev) => (prev === "back" ? "front" : "back"));
-};
-
-const renderCamera = () => {
-  return (
-    <CameraView
-      style={styles.camera}
-      ref={ref}
-      mode={mode}
-      facing={facing}
-      mute={false}
-      responsiveOrientationWhenOrientationLocked
-    >
-      <View style={styles.shutterContainer}>
-        <Pressable onPress={toggleMode}>
-          {mode === "picture" ? (
-            <AntDesign name="picture" size={32} color="white" />
-          ) : (
-            <Feather name="video" size={32} color="white" />
-          )}
-        </Pressable>
-        <Pressable onPress={mode === "picture" ? takePicture : recordVideo}>
-          {({ pressed }) => (
-            <View
-              style={[
-                styles.shutterBtn,
-                {
-                  opacity: pressed ? 0.5 : 1,
-                },
-              ]}
-            >
-              <View
-                style={[
-                  styles.shutterBtnInner,
-                  {
-                    backgroundColor: mode === "picture" ? "white" : "red",
-                  },
-                ]}
-              />
-            </View>
-          )}
-        </Pressable>
-        <Pressable onPress={toggleFacing}>
-          <FontAwesome6 name="rotate-left" size={32} color="white" />
-        </Pressable>
-      </View>
-    </CameraView>
-  );
-};
 
   return (
     
@@ -143,8 +68,7 @@ const renderCamera = () => {
       
       <View style={receipt.container}>
 
-        {/* TODO I think this can be removed */}
-        {showCamera ? (Picture_Taker()): null}
+
 
         <Modal
           animationType="slide"
@@ -269,6 +193,20 @@ const renderCamera = () => {
         {/* Pictures of the receipt(s) */}
         <View style={receipt.receiptPanel}>
 
+                    {/* Add receipt button */}
+          {/* <TouchableOpacity onPress={() => setModalVisible(true)} style={receipt.receiptImageBox}>
+            
+            <View style={receipt.receiptImageAdd}>
+              <Icon 
+                name={receipt.receiptImageIcon.name}
+                size={receipt.receiptImageIcon.size} 
+                color={receipt.receiptImageIcon.color} 
+                // style={styles.topBarButtonIcon.style} 
+              />
+            </View>  
+
+          </TouchableOpacity> */}
+
           {/* Add receipt button */}
           <TouchableOpacity onPress={() => setModalVisible(true)} style={receipt.receiptImageBox}>
             
@@ -305,41 +243,3 @@ const renderCamera = () => {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  camera: {
-    flex: 1,
-    width: "100%",
-  },
-  shutterContainer: {
-    position: "absolute",
-    bottom: 44,
-    left: 0,
-    width: "100%",
-    alignItems: "center",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: 30,
-  },
-  shutterBtn: {
-    backgroundColor: "transparent",
-    borderWidth: 5,
-    borderColor: "white",
-    width: 85,
-    height: 85,
-    borderRadius: 45,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  shutterBtnInner: {
-    width: 70,
-    height: 70,
-    borderRadius: 50,
-  },
-});

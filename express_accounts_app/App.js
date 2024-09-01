@@ -28,8 +28,8 @@ import Login from './screens/login'
 import NewUser from './screens/create_new_account';
 import ReceiptData from './screens/receipt_data'
 import ImagePicking from './screens/image_picker'
-import Cam from './screens/camera';
-import Camera from './screens/camera_test'
+import Camera from './screens/camera'
+import Process from './screens/process_image';
 
 const Stack = createStackNavigator();
 
@@ -41,9 +41,9 @@ function App() {
         <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
         <Stack.Screen options={{ headerShown: false }} name="NewUser" component={NewUser} />
         <Stack.Screen options={{ headerShown: false }} name="ReceiptData" component={ReceiptData} />
-        <Stack.Screen options={{ headerShown: false }} name="picking" component={ImagePicking} />
-        <Stack.Screen options={{ headerShown: false }} name="Camera" component={Cam} />
-        <Stack.Screen options={{ headerShown: false }} name="CameraTest" component={Camera} />
+        {/* <Stack.Screen options={{ headerShown: false }} name="picking" component={ImagePicking} /> */}
+        <Stack.Screen options={{ headerShown: false }} name="Camera" component={Camera} />
+        <Stack.Screen options={{ headerShown: false }} name="Process" component={Process} />
       </Stack.Navigator>
     </NavigationContainer>
   );
