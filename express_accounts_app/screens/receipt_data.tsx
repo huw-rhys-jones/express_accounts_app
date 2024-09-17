@@ -1,14 +1,16 @@
 import React, { useRef, useState } from 'react';
-import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, Modal, ScrollView, StyleSheet, Pressable } from 'react-native';
+import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, 
+  Modal, 
+  ScrollView, StyleSheet, Pressable } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown'
 import { receipt, logoStyles } from '../styles' 
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { currencies, expense_categories } from '../constants/arrays'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { pickImage } from './image_picker'
-import { AntDesign } from "@expo/vector-icons";
-import { FontAwesome6 } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
+// import { AntDesign } from "@expo/vector-icons";
+// import { FontAwesome6 } from "@expo/vector-icons";
+// import { Feather } from "@expo/vector-icons";
 
 // TODO 
 // Noticed that upon pressing the button to move to camera, it sometimes delays before moving
@@ -40,7 +42,7 @@ export default function ReceiptData({route, navigation }) {
     setDatePickerVisibility(false);
   };
 
-  const handleConfirm = (date) => {
+  const handleConfirm = (date: React.SetStateAction<Date>) => {
     setDate(date)
     hideDatePicker();
   };
@@ -189,39 +191,71 @@ export default function ReceiptData({route, navigation }) {
           </View>
 
         </View>
-
+        
         {/* Pictures of the receipt(s) */}
-        <View style={receipt.receiptPanel}>
 
-                    {/* Add receipt button */}
-          {/* <TouchableOpacity onPress={() => setModalVisible(true)} style={receipt.receiptImageBox}>
+        <ScrollView horizontal={true} contentContainerStyle={{width: "100%"}}>
+          <View style={receipt.receiptPanel}>
+
+            {/* Add receipt button */}
+            <TouchableOpacity onPress={() => setModalVisible(true)} style={receipt.receiptImageBox}>
+              
+              <View style={receipt.receiptImageAdd}>
+                <Icon 
+                  name={receipt.receiptImageIcon.name}
+                  size={receipt.receiptImageIcon.size} 
+                  color={receipt.receiptImageIcon.color} 
+                  // style={styles.topBarButtonIcon.style} 
+                />
+              </View>  
+
+            </TouchableOpacity>
+
+            {/* Add receipt button */}
+            {/* <TouchableOpacity onPress={() => setModalVisible(true)} style={receipt.receiptImageBox}>
+              
+              <View style={receipt.receiptImageAdd}>
+                <Icon 
+                  name={receipt.receiptImageIcon.name}
+                  size={receipt.receiptImageIcon.size} 
+                  color={receipt.receiptImageIcon.color} 
+                  // style={styles.topBarButtonIcon.style} 
+                />
+              </View>  
+
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => setModalVisible(true)} style={receipt.receiptImageBox}>
+              
+              <View style={receipt.receiptImageAdd}>
+                <Icon 
+                  name={receipt.receiptImageIcon.name}
+                  size={receipt.receiptImageIcon.size} 
+                  color={receipt.receiptImageIcon.color} 
+                  // style={styles.topBarButtonIcon.style} 
+                />
+              </View>  
+
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => setModalVisible(true)} style={receipt.receiptImageBox}>
+              
+              <View style={receipt.receiptImageAdd}>
+                <Icon 
+                  name={receipt.receiptImageIcon.name}
+                  size={receipt.receiptImageIcon.size} 
+                  color={receipt.receiptImageIcon.color} 
+                  // style={styles.topBarButtonIcon.style} 
+                />
+              </View>  
+
+            </TouchableOpacity> */}
+
             
-            <View style={receipt.receiptImageAdd}>
-              <Icon 
-                name={receipt.receiptImageIcon.name}
-                size={receipt.receiptImageIcon.size} 
-                color={receipt.receiptImageIcon.color} 
-                // style={styles.topBarButtonIcon.style} 
-              />
-            </View>  
 
-          </TouchableOpacity> */}
+          </View>
 
-          {/* Add receipt button */}
-          <TouchableOpacity onPress={() => setModalVisible(true)} style={receipt.receiptImageBox}>
-            
-            <View style={receipt.receiptImageAdd}>
-              <Icon 
-                name={receipt.receiptImageIcon.name}
-                size={receipt.receiptImageIcon.size} 
-                color={receipt.receiptImageIcon.color} 
-                // style={styles.topBarButtonIcon.style} 
-              />
-            </View>  
-
-          </TouchableOpacity>
-
-        </View>
+        </ScrollView>
 
         {/* Buttons at the bottom */}
         <View style={receipt.buttonsBottom}>

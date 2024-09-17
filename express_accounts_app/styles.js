@@ -343,7 +343,7 @@ export const logoStyles = StyleSheet.create({
     },
 
     receiptPanel: {
-      // flexDirection: "row",
+      flexDirection: "row",
       marginTop: 40,
       flex: 32,
       justifyContent: "flex-start",
@@ -398,8 +398,9 @@ export const logoStyles = StyleSheet.create({
     },
 
     receiptImageBox: {
-      flex: 1, 
-      width: "25%", 
+      // flex: 1, 
+      width: "25%",
+      height: 200,       
       backgroundColor: "#d9d9d9", 
       margin: 10, 
       justifyContent: "center", 
