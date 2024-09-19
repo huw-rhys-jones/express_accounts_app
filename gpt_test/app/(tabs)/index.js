@@ -21,7 +21,7 @@ const ReceiptDetailsScreen = () => {
           style={styles.receiptImage}
         />
         <TouchableOpacity style={styles.closeButton}>
-          <Text style={styles.closeButtonText}>X</Text>
+          <Text style={styles.closeButtonText}>x</Text>
         </TouchableOpacity>
       </View>
 
