@@ -15,7 +15,7 @@ import { pickImage } from './image_picker'
 export default function Process({ route, navigation }) {
 
   const [uri, setUri] = useState(route.params);
-  const [modalVisible, setModalVisible] = useState(false);  
+  const [modalVisible, setModalVisible] = useState(false); 
   
   const launch_camera = () => {
     setModalVisible(false)
@@ -36,7 +36,7 @@ export default function Process({ route, navigation }) {
 
   const accept = () => {
     setModalVisible(false)
-    navigation.navigate('ReceiptData', uri)
+    navigation.navigate('ReceiptData', {uri})
 
   }
 
@@ -93,7 +93,7 @@ export default function Process({ route, navigation }) {
             style={{ width: 300, aspectRatio: 1 }}
           />
           <Button onPress={() => setModalVisible(true)} title="Use a Different Image" />
-          <Button onPress={() => setUri(null)} title="Accept" />
+          <Button onPress={() => accept()} title="Accept" />
         </View>
         
       );

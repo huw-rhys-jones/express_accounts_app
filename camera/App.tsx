@@ -36,6 +36,7 @@ export default function App() {
 
   const takePicture = async () => {
     const photo = await ref.current?.takePictureAsync();
+
     setUri(photo?.uri);
   };
 
@@ -59,6 +60,7 @@ export default function App() {
   };
 
   const renderPicture = () => {
+
     return (
       <View>
         <Image
@@ -121,6 +123,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       {uri ? renderPicture() : renderCamera()}
+      {/* {renderCamera()} */}
     </View>
   );
 }
